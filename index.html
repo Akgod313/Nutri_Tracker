@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+<meta name="apple-mobile-web-app-title" content="NutriTrack">
+<meta name="theme-color" content="#0a0a0a">
+<link rel="apple-touch-icon" sizes="512x512" href="data:image/png;base64,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W+vykt2xKibe96WY+ODXo3XEg6N95COi/ai9l3yEm909G7WfXBX171wa9e+U83RD45zvRXez6YVbq/vUfvQ+MfeB18TUaz4YMdfMoXX5yWZmZop/uw3DVcui/ci9onPIftE5YNfoLNt24b7XqYmI2fnIbrs7ar/+XdQuXh71b10StSuuL7rFUGmdPXeIzmMeEO1H7RXd3beP7lab3vtY32zVXGS/vyOy5TctjLnvXR61X/f/psBCTDSi8+DdorPfsug8YKfo7rxNdO67ZcTWm0Z3anLhyZvtdmSr5iNWz0e24o7Ibrg1atffEtmvbojaJdcuXGhYgpeo8ecEAABIkGsAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBB/x9IaTEDuS8h1QAAAABJRU5ErkJggg==">
+<link rel="icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgAAAAIACAYAAAD0eNT6AAAlV0lEQVR4nO3debRkVX0v8N+pqjtwAZkFGZpJQGRwVlQERVATFRUnHCDOA0YBiU+TvGde9L2IBgckoIZEDWCcFY2zzxlRIyAyiIjYgIBCy9x033tren9cGtv2dndV3Tp1zqn9+azF0rW6TtXuPnv/9vfsM2UzMzPdAACSUiu6AQDA6AkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEGNohsADMeqq84Y2W/N7HXcyH4LyEc2MzPTLboRwPqNcmIfNkEByksAgBKo8iQ/KOEAiiUAwIilONn3SiiA0REAIEcm+6UTCiAfAgAMkQk/fwIBDIcAAEtgwi+eQACDEQCgDyb88hMIoDcCAGyESb+6hAFYPwEAFmHSHz/CAPwpAQDuYdJPhzAAAgCJM+kjDJAqAYAkmfhZlyBAagQAkmHSp1fCACkQABh7Jn4GJQgwzgQAxpaJn2ERBBhHAgBjx8RPXgQBxokAwNgw8TMqggDjQACg0kz6FE0YoKpqRTcABmXypwz0Q6rKCgCVo+BSVlYDqBIBgMow8VMVggBVIABQeib+3q2ZePL6N5vZ6zj7ow+CAGXWKLoBsD4mmj8q00TSa1vsvz/+G5Rp/8EaAgCllOrkMU4Txfr+Linu21VXnTFW+5bxIABQKilNDqlOCIv9vVPY71YDKBsBgFIY9wlA0d+wlEKBIEBZCAAUbhwLveK+dOv+G45bP3FagKIJABRm3Aq6Yp6vtf99x6XvWA2gSAIAhRiHAq5oF2fcVgesBlAEAYCRq3KxVqTLaRxWB4QARk0AYGSqWpgV5WqpchhwSoBR8jIgRqJqhThioQgrxNVW1X1YxfFC9VgBIHdVKmZVnCzYuCquCjglQN4EAHJTlUIbYeJPSd7vSxgmpwTIkwBALqpQXBXVtFVpVcBqAHlwDQBDV/ZiWtXzwuSnCn2i7OOK6hEAGKoyF6kqFHmKVfY+UubxRfU4BcBQlLkwlbmgU05lvk7AdQEMixUAlqyMRTKi/EdzlF+Z+1BZxx3VIQCwJGUsQmUu2lRTWftUGccf1SEAMLAyFp8yFmnGRxn7VxnHIdUgADCQshWdsh6hMX7K2NfKNh6pBgGAvpWp2JSxGJOGsvW9Mo1LqkEAoC9lKjJlKr6kq0z9sEzjk/ITAOhZWYpL2Y68oEx9sizjlPITAOhJWYpKWYosLKYs/bMs45VyEwDYqDIUkzIdYcGGlKWvlmHcUm4CABtUhiJShmIK/SpDvy3D+KW8BADWq+jiUZYjKRhUGfpw0eOY8hIAWFTRRaPoognDVHR/Lno8U04CAH+m6GJRdLGEPBTdr4se15SPAMCfKLJIlGG5FPJUdB8XAlibAEApmPhJif5OGQgA3KuoowPFkBQV1e+tArCGAEBEmPyhCEIARRIAMPlDgYQAiiIAJM7kD8UTAihCo+gGkBYTPyxuzdgwKTMqVgASNupCY/KHjRv1OBE40iUAJMrkD+UlBDAKAkCCTP5QfkIAeRMAyJXJHwZn/JAnASAxUj6wPupDWgSAhFj6h+pxKoC8CADkwuQPw2M8kQcBIBGjTPWKFQzfKMeVVYA0CAAJMPnDeBACGCYBgKEx+UP+jDOGRQAYc6NK8YoSjM6oxptVgPEmAABAggSAMeboH8aXVQCWSgBgSUz+UBzjj6UQAMbUKFK74gPFG8U4tAowngSAMWSwAsOmrowfAYCBOPqH8jAeGYQAMGYs/UOanAqgXwIAACRIABgjjv4hbVYB6IcAAAAJEgDomaN/KD/jlF4JAGMi72U5RQWqI+/x6jTAeBAAACBBAsAYcPQPrMsqABsjAABAggQANsjRP1SX8cuGCAAVZxkOKIr6U20CAOvl6AGqzzhmfQSACpO+gaKpQ9UlALAoRw0wPoxnFiMAAECCBICKsuwGlIV6VE0CAH/GciGMH+OadQkAAJAgAQAAEiQAVFCe59ssE8L4ynN8uw6gegQAAEiQAAAACRIAuJflfxh/xjlrCAAV4zwbUFbqU7UIAACQIAGAiLAsCCkx3okQAAAgSQIAACRIAKgQF9gAZadOVYcAgPOBkCDjHgEAABIkAABAggQAAEiQAAAACcpmZma6RTeCjXNlLVAlLjIsPysAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAnKZmZmukU3gt6suuqMXL53Zq/jcvleiqOv0Av9JG1WAAAgQQIAACRIAACABAkA5HYeECgv4x4BoEJcWAOUnTpVHQIAACRIAACABAkARITzgZAS450IAQAAkiQAVIwLbICyUp+qRQDgXpYFYfwZ56whAABAggQAAEiQAFBBeZ5nszwI4yvP8e38f/UIAACQIAEAABIkAPBnnAaA8WNcsy4BoKKcbwPKQj2qJgEAABIkALAoy4UwPoxnFiMAVJhlN6Bo6lB1CQCsl6MGqD7jmPURACpO+gaKov5UmwDABjl6gOoyftkQAQAAEiQAjIG8l+EcRUD15D1uLf9XnwAAAAkSAMaEVQBgDUf/9EIAoGdCAJSfcUqvBAAASJAAMEZGsSzn6ALKaxTj0/L/+BAAACBBAsCYsQoAaXL0T78EAAYiBEB5GI8MQgAYQ1I6MGzqyvgRAMaUUwGQBkv/DEoAYEmEACiO8cdSCABjbFSpXRGC0RvVuHP0P74EAABIkAAw5qwCwPhx9M8wCAAMjRAA+TPOGBYBIAGjTPGKE+RnlOPL0f/4EwASIQRAtZn8GTYBgFwIATA8xhN5EAASMupUr2jB0o16HDn6T4cAkBiDG1gf9SEtAgC5sgoAgzN+yJMAkCCnAqD8LP2TNwEgUUIAlJfJn1EQABImBED5mPwZlUbRDSAta4qbogN/SkBm1KwAJK6oiVixgz8qajwI4mkTABACoEAmf4oiABARQgAUweRPkQQA7iUEwOiY/CmaAEApCAGkRH+nDAQA/kSRRwerrjpDYWSsFd3HHf2zNgGAP1N0kRACGEdF9+uixzXlIwCwqKKLRdHFEoap6P5c9HimnAQA1qvoolH0ciksVRn6cNHjmPISANigMhSPogsoDKIM/bYM45fyEgDYqDIUkTIcSUEvytJXyzBuKTcBgJ6UpZiUobDC+pSlf5ZlvFJuAgA9K0tRKcsRFqxRpj5ZlnFK+QkA9KVMxaUsBZe0lakflml8Un4CAH0rU5Ep05EXaSlb3yvTuKQaBAAGUrZiU7ZizPgqY18r23ikGgQABlbGolO2wsx4KWP/KuM4pBoEAJakjMWnjEdoVFtZ+1QZxx/VIQCwZGUtQmUt2lRHmftQWccd1dEougGMhzXFqIzFck2bFEx6VcZ+vIZ+zLBYAWCoylycynw0RzmUvY+UeXxRPQIAQ1f2IlX2Is/oVaFPlH1cUT1OAZCLmb2OK31BXbt9imt6yt4/16Z/kgcBgNyU+bqAdblOIB1V6I9r6I/kSQAgd1VYDVjDqsB4qkr/W5v+R95cA8BIVLGYVeG8MBtW1X1YxfFC9VgBYGSqdEpgbVYFqqVq/Wtt+hejJAAwclU6JbAuYaCcqtqf1qY/MWoCAIWocghYY932K+CjU/W+sy59hyIIABSmqqcE1sfqQL7GpZ+sTT+hSAIAhRuH1YB1WR1YunHrE+vSJyiaAEApjNtqwLoW+3uZAP5oXPf7Yux3ykIAoFTGPQisLdVQkMK+XUwK+5ZqEQAopXE8LdCL9f2dqzh5pLj/1qeK+4/xJwBQWimtBmxMr/8Go5ho7I/emfgps2xmZqZbdCOgFyYeqsLETxUIAFSOIEBZmfipEgGAyhIEKAsTP1XkZUBUlqJLGeiHVJUVAMaGFQFGxaTPOBAAGDuCAHkx8TNOBADGliDAsJj4GUcCAGNPEGBQJn7GmQBAMgQBemXiJwUCAEkSBliXSZ/UCAAkTRDAxE+qBAC4hzCQDpM+CACwKGFg/Jj04U8JALARwkB1mfRh/QQA6IMwUH4mfeiNAABLIBAUz4QPgxEAYIgEgvyZ8GE4BADIkUCwdCZ8yIcAACMmFKyfyR5GRwCAEkgxFJjsoVgCAJRclcOBSR7KSwCAMTHKoGBih+oTAAAgQbWiGwAAjJ4AAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJKhRdAOAxa265H0Rm0z2/PnGF/87Jk/6aG7tgVEzBvJlBQAAEiQAAECCxuYUQOt5j435//uigbbN7lgV0098a2R3rFpyOzr77hyzX/y7vrapf/nCmDrh35f827A+8+9+SbSOfGTRzRhY/fwrY+qvTi26GTBWxiYALEV3i5lovepJMfHP5xbdlKTNfv4t0dl/Wc+fr112XUw/6+QcWwQwvpwCuEfz2CdEd/sti24GAIyEALDG9EQ0X//UolsBACMhAKyl9ZxHR2f37YtuBgDkTgBYW70WzZOOLLoVAJA7AWAd7Sc/JDoH7lZ0MwAgVwLAIppvembRTQCAXLkNcBHtg/aO9uMeGPUf/KLoppCwmQNPKLoJwBizArAezb95RkSWFd0MAMiFFYD16Dxwl2g/9WFR/9IFRTcFlmzypI8u+SUpnQN2jdnPvbnv7aZef2bUv/azJf02MHxWADZg/sSnRzTqRTcDAIbOCsAGdJdtF63nPzYaH/t+0U2hiuq16Dx0j2gfsl909t05OntsH7HFptHddCqi1Y7szlWR/f72mPz7j0XtiuuLbm0ahrFPall0t9w0utve597/YtvNF/7/Nvf87+bTETPT0d1sKmJmKmKyEd16PaJRi6jXIjrdiPlWZLPzkd22MuLWlVH77S2RXXNT1H5xfdQuXh7Z7XeP9t9mMRON6Dxot+g8cJfo7LtTdHfaJrrbbxHdrTeP7tRExGQjot2JbPVcxKr5yFbcGdmNt0bt+lsiu/KGqF1ybdSW3xTR7Rb9N2ERAsBGNP/6L6PxuR9HrJ4vuin3ah11UMy/89i+tpl6+b9E/fv9X9Q4yG9NP/efo3bx8sX/cGYqVv38vX23YzGd/ZfFqqvO6Gub2oVXx/TR717vnw/l/eNTE9E85tBoHfuE6N5vq8U3rNeiu90WC/9ttVl+bRkDZdonERHNlz0xmm8+quf2LP5bWcQmk9HdZHLht/aI6Dz8/n/ykdpl10X96z+Lxud+HNnNdyzt9/oxNRHtIx4UrSMfEe2D9tn4v329Ft3JxkKQut9WEQfuGu21/jhbORu1H/8q6t+9NOrfvTyym27Pr+0Daj33MQsvk+v3uq9VczH1mg9G/UdX5tOwnAkAG9Hd9j7RfOkTY+KMrxbdFCqg87A9Y+7kY6K7231738jFprmq6j7p7L8sOvsvi+bxT4vGF38aE+/5Yq6TZ/c+m0TrJYcthKQtZob3vZtNR/vwA6N9+IGRXbciNnniPwztu4ehdfTBMf+2F/S9z7Pb746pl58etUuuyadhI+AagB60XnnEBo8IIGJhtWT27OP7m2jI1Vjsk0Y9WkcdFKu/+b+j9exH5/ITrWc/Oma//bZovv6pQ538y671wkMGm/xvviOmXvCeSk/+EYkHgOzGW3v6XHez6Wi+9ik5tyZnTsHlqnXUQTF/8jEREwMsqhV/sDmWxm6fbDIZ8ycfE803P2toX9ndfJOY+9fXxvzJx0R3i02H9r1V0HrxoTH/j0f3P/lfuyKmn3dK1H79u5xaNjpJB4DGx3/Q87m11osOie6OW+fcIqqo/Zh9Yv6fXjz4snEJlpvHzTjvk+Yrjojma5685O/p3m+rmPvs/4j2Ew4YQquqpXXsE2L+H57f93a1X94Q0y94d2Q33JJDq0Yv6QCQzTZj4rQv9/bhyUY0j39avg3Kk6twc9HdZvOYP+WlC1d2Uwop7JPmCU+PzkP3GHj77vZbxuw5JyT59tPWSw+L+f/13L63q130m5h60XsiW3FnDq0qxviOkB41Pn1+ZMtv7umzrWc+Kjp775hzi6iS9mP3je5291nal5T3YLOSktgn9VrM/6/nDbZSMdmIuQ+8OrrLtht+u0qu+YrDY/7vntP3dvUf/CKmX/L+yO5cnUOriuMugHYnJt/zhZg77ZUb/2wti+ZJz4ipV38g/3YNmwWA8irxcnOyBtgn2U23R+3i5VH7zU2RLb9p4X/vXBWxci5i1Vxks/MLzwOYmli4l36XbaPz4N2jfeh+0XnAzn3/Xmf/ZdE+dL+of/eyvrab/9tnR+eAXfv+vaprvupJA73orf6VC2Pqb/4jotkafqMKJgBERP1rP4vaJddG58CND4r2YQdE52F7Ru3Cq0fQsiFyCgCGrnbB1VH/1s+j/oNfRO3KGze+wer5yFbPLzzk58obo/7/LomJU74Q7UftHfP/54V9363QeuHjop8A0Dlwt2i98JC+fmNdteU3Rf1bl0btx1dG7doVEbetjOzuuehuvknEFjPR2Xmb6By4W3QevFu0H/OAiKmJJf3eMDRf+5RovvHIvrdrfOK8mPyHjy88uGkMCQD3mDjl3Jg76/iePjv/pmdu8GEypVSWALBqLmb2Om7RP5r9/Fuis/+ynr+qdtl1Mf2sk4fVsqGqXXpt1L/586j/8JeR3Xx7ZLesjO70RHS33zI6D9k92ocdGO3H77fwqGkrACMxrH2SrZqPxifOi8Y53+1t0u9B/Se/iumj3hmzn31zdHfvPQS0H7vvwoN6enxQ2fxbjoqoDdbfsutWxOS7vxj1r160aD3JblsZcdvKqF9zc9TPuyIi7nkGwFMeGq2jD47Og3Yb6HeXqvm6v4zmCf1fvzVx5jdj4l2fz6FF5SEA3KP+oyujft4V0T54341+tvOwPaN92AFR//alI2jZkJQlAIy57He3xeQ/fWbRl99kzVZkd62O2q9/F41Pnx/d7e6zcHtps73INzEsw94njf/M59Hg2V2rY/IfPxlzH3197xtNNqL9iPv39JTPzoN2i84j7r/Rzy2mft4VMXn8v/V9DjxbORuNz5wfjc+cH+0nHBCtow4a6PcH1Xz9U6P5hqf2vd3Euz4fE2d+M4cWlYsAsJaJU86N9mMf0NMRWfOkZ0T9u5dVZmkoq0g7q6y2/KaYOubUnp/Wlq24Mybf9ql8G5W4qu2T+o9+Gdkdd/d1T35n/2U9BYDW8w8eqE21C34dU684PaLdGWj7NerfuTTq3xndQVPzhKdF83V/2d9GnW5MvvU/o/HJH+bTqJJJ/i6AtdUu/23Uv3xhT5/t7L1jtJ7xyJxbNERWAHKV3bm6r4mG/FVyn3S6kd3Q2wPK7t1krx7uTKrXon3Eg/puTnbbyph6w78vefIfteYbj+x/8m+2YurEDycz+UcIAH9m8r3/FdHqbUm2efzTF96GVQUCQK4m3vHZak00CajsPunzxWPdHbbc6Gc6++0S3S37f9Jf46PfjmzFCF9ENATNNz2z/ye3rp6PqVd/MOpf6e0AcFxUZPYaney6FdH45A+j9aKNXynb3WnraL3wkGh89NsjaNkSOQWQm+yGW6PxuR8V3QzWUtQ+6W692cIV8HvvGN3d7xvdHbdeeD3wFjMRm01Hd6KxcJHhgBfiLfqb22z8mQedBw/w0KDZZjTO+d4ALSpO6/AHLbx+uQ/Znatj6pWnR+2i3+TUqvISABYx8S9fWbhYpYdXkDaPe0rUP3N+ZCtnR9CyJTD/56bx2R8JWCUzyn3S2X37aB/5iGgf8eDo7H2/0d/VMb3x2+w6+/T/ALP6Rb+p3oNv+p38V9wZUy87LWq/vCGnBpWbALCI7A93xsRHvhXN4/5io5/tbrVZtF5xeEy870sjaNkSOAWQm/q3Lym6CaxjFPuk84Cdo3nSkdE+dL9ib+Xs4T777s7b9P21tZ9eNUhrKiO74ZaYPvb9kV23ouimFMY1AOvROPObC/e19qD5ssOju+0SHz1KNTVbUftV9d8KNlby3if1WjRPPDJmz31LtB+/f/HPcejhdMIg9al2TW+PSK+i2vKbYvp5pyQ9+UcIAOuVrZyNiQ98rbcPbzIZzddtfLWA8VO7+vdj+YjQKst1n9RrMXfqy6N53FMq9bKhbp9L4xERcfvdw29ISXS33iy6W29edDMKV50eXIDGx74f2Y293ZLTOvrgcr9cY9CjlOmNXweRsuy28S2SVZXnPpn/++dE+8kPye37czPA3Uqlv65pCbpbbBpzZ70h+Ze7CQAbMt+KiVN7PLffqMf8iU/Ptz1LMeDRSnfzTYbckDFzV8UukkpBTvukfdDe0Trm8bl8d+7m+18R6W42nUNDyqO71WYxd9bx0dlzh6KbUhgXAW5E49yfROvlh/eUFNtPfVjUf7DxJ3IVoTvg8wq6W2825JaMl2y2v3u2yV9e+2SQl8lELDzit/6Vi6L+/cujdtWNEX+4K7JVc+t9uM7sJ06KzsP2XEpT/7wNq+b6vxFogOcGVE13m81j7uwTYupF743a8puKbs7IWQHYmE43Jt79hd4+m2XRPL7/l06MRA+3NC6mO8BrSmHcdPbeMToP6f9e+vpXL4rpw94ak//zY1H/xsWRLb85srtWb/jJekN8RsAa2R/u7Hubzq79vZmwFOaafW/S3e4+MXfOCdHdtcSncHMiAPSg/u1Le379b3fHrXNuTQx0f/NAy3n1WnT226X/7WDMtA/dr+9t6t+9LKaO//eFV//2I4cj7+z6W/repvPIwV4cVKTGNy6Oxud/0vd23ftuEbPnnBjdXbbNoVXlJQD0aPKfzy26CffKVvZ/jrO7Xf+3AbUf98CFJ5hB4gZ5le3Euz7f//M3siyXW4prv+r/tcXth+4Z3ftU7Bqgbjcm//bsqH/j4v433WHLmD3nhOjuNIKDuJIQAHpUu/Dq8rz+967+r87t7r5939u0XvC4vrdZkn6LZQ5LpbCYfu/wyW66PWpX9f8sgs4+O+Vy4W3tZ8v732h6IlovOnTobclduxNTJ3w46udd0fem3R23XlgJGMVKbgkIAH2YePcXSvHI12yAq5zbj96nv88f8sBoH3ZA37+zJBt4B/ti3KHAqPR7JJz94a6BfmeQN/b1onb5dZHd0f/tka2XHhbd7bbIoUU5a7Zi6rgPRe2C3k7drq278zYxe/bx0d1+y+G3q2QEgD7UfnVjNM7t//zSsA3yhrPuLttG+2kP7+2zu24X8ycf0/dvLFV2d38rG92dthn7W5UoiT6fozFQv9xkMlrHPr7/7XrR7kT9Gz/ve7PuVpvF3PtfXqmHHt1r9fzCS34u/23fm3aXbbdwOqCK4acPFdyrxZo49UsD3VM7TNktdw0UAub+6cXRecSGL+zpPHKvmD27mI6f3dLnUVMti9aLK7hESeX0+3Ch7rJto7tNf0+am3/r8wZ6ZW+vGp8a7D33nYffP+bOPG7J1wN0HnH/mHvvy5b0Hf3KVs7G1EtPW3g6ZJ+6u9035s45fqwf8y4A9Cm78dZofOz7RTcjapdd1/9Gm0zG7NknxPzbXxCdh+0Z3S02jZiaiO5O20T7KQ+JudNftZB677fV8Bvcg+y3f+h7m+aJR8b8218Y7Ufvs3Ch44DPO4AN6fs2uiyL1sue2PPHWy85LFrPeUyfrepP7eLlUfvprwfatv24B8bs594S7ac8pL/VkIlGtJ/04Jj7t9fF7H++MToH7jrQ7y9FdtvKmDr21MHuhNhjh5g76/ixfR6KajmAiTO+Gu3nPqbQ5efaRb+J9hMP7H/Dei1aRz8uWkeP+AK/Hgz0Ss5aFq2jD47W0Qdv9KP1r/8spv76zAFaRupql1/X962AzVccEdnVv4/G5368/g9NT0TzhKdH8+WHL7GFvZl85+di9lNvGugC2u6u28Xcaa+M2m9+H/VvXRq1H10ZtWtXRNy2cuFBQ5ttErHFTHR32DI6+y+L9gG7Rudx+y4caBQsu/mOmD721Jj9xEnRvW9/q5udve4Xc2edEFMvfm//t3SWnAAwgOz2u6Nx5jejWeCjfxv/9dNonvSMsboSvnbBrxfuBCj67Wqwjvp3Luvp9eB/opbF/DuPjfZfPDQanz4/aj+/JrJbV0Z3k3tW3Z6wf7Sef/BIrziv/fyaaHz8B9F60SEDf0dnjx2is8cOEa88Yogty1/22z/E1LGnxtzH3xjdrfo7ou/ss2PMnXV8TB3zvsjuWJVTC0dPABjQxEe+Fa0XHzrQ/fXDkP3utqifd0W0D3lgIb+fh+zWlVG74OqNXqcAo1a75JrIrr8lujtv0/e27cfvv/Da4JKYfMdno/Og3aKz/7KimzJytat/H1MvPS3mzjmx7xXczr47x9xH3xBTf3VqZHeOxztAXAMwqNXzMXH6VwptQuMj38r3B+aa0fjEefn+xjomzvneSH8PetLpxmSvjwRfgtovrx/oqvW+zDVj6rUfHOiam3FQu/y3MfXK0yNW9//OiM7+y2LuI68fm7uPBIAlaHzyh5Fdt6Kw36+fd0U0vvDf+Xx5pxtTb/qPqP3sN/l8/3rUv3ZR1C4e4KElkLP6ly8c6L7yXmV3rFq4RmUEL5jKfn97TCf6ApyIiNoFV8fUcR+KaPZ/R1fnwN1i7sN/Hd1Nqx8CBIClaLVj8r3/VWgTJt7+6chuvmO4X9ruxNRJH4n6Vy8a7vf2otONqRM/3P8tgZC3bjemXvehfEL/qrmYesXpkV07ugOK7He3xdSz3xX17142st8sk/p5V8TUCR/e8IuZ1qPzkD1i7t9eN/BL1spCAFii+pcvzH/JbgOyO+6OqZedFtltK4f0fati6lVnRP1LFwzl+wZqw/W3xPTzTxno+eWQp+zWlTH9sn8ZagjI/nBnTP/V+wtZ+cruWh1TrzwjJv/unLG6uK1X9W9cHJN/e3b/jyGPiM7D94zZiocAAWCput2YOOXcQptQu/LGmD7qnYM9G2At9fOvjOlnviPq3//FkFo2uOzaFTH9jHfE5Ns/PdD9u5CXNX2z/rWfLfm76uddEdPPOrnw016NT58f0098a0yc/pWxucCtV43P/yQm3/apgbbtPHKvmPvQayOmJ4bcqtFwF8AQ1M+7IurnXxntx/T3vP1hyq6/Jaaf865oHX1wNF/1pL5uLapddl1MfPDrUf/60gvaULXa0TjrO9E46zvROXDXaB+0T3T22yW6u903utttsfBksonGWN0KSTVkK2dj6vVnRvvgfaP16idH+6C9+9q+9vNrYuJfvzHQW+vykt2xKibe96WY+ODXo3XEg6N95COi/ai9l3yEm909G7WfXBX171wa9e+U83RD45zvRXez6YVbq/vUfvQ+MfeB18TUaz4YMdfMoXX5yWZmZop/uw3DVcui/ci9onPIftE5YNfoLNt24b7XqYmI2fnIbrs7ar/+XdQuXh71b10StSuuL7rFUGmdPXeIzmMeEO1H7RXd3beP7lab3vtY32zVXGS/vyOy5TctjLnvXR61X/f/psBCTDSi8+DdorPfsug8YKfo7rxNdO67ZcTWm0Z3anLhyZvtdmSr5iNWz0e24o7Ibrg1atffEtmvbojaJdcuXGhYgpeo8ecEAABIkGsAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBBAgAAJEgAAIAECQAAkCABAAASJAAAQIIEAABIkAAAAAkSAAAgQQIAACRIAACABAkAAJAgAQAAEiQAAECCBAAASJAAAAAJEgAAIEECAAAkSAAAgAQJAACQIAEAABIkAABAggQAAEiQAAAACRIAACBB/x9IaTEDuS8h1QAAAABJRU5ErkJggg==">
+
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg%20xmlns%3D%27http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%27%20viewBox%3D%270%200%20180%20180%27%3E%0A%20%20%3Cdefs%3E%0A%20%20%20%20%3ClinearGradient%20id%3D%27bg%27%20x1%3D%270%25%27%20y1%3D%270%25%27%20x2%3D%27100%25%27%20y2%3D%27100%25%27%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%270%25%27%20stop-color%3D%27%25230a0a0a%27%2F%3E%0A%20%20%20%20%20%20%3Cstop%20offset%3D%27100%25%27%20stop-color%3D%27%2523102a1f%27%2F%3E%0A%20%20%20%20%3C%2FlinearGradient%3E%0A%20%20%20%20%3Cstyle%3E%0A%20%20%20%20%20%20.spin%7Banimation%3Aspin%203s%20linear%20infinite%3Btransform-origin%3A90px%2072px%7D%0A%20%20%20%20%20%20.pulse%7Banimation%3Apulse%202s%20ease-in-out%20infinite%7D%0A%20%20%20%20%20%20.dash%7Bstroke-dasharray%3A160%3Bstroke-dashoffset%3A160%3Banimation%3Adraw%201.5s%20ease%20forwards%7D%0A%20%20%20%20%20%20%40keyframes%20spin%7Bto%7Btransform%3Arotate%28360deg%29%7D%7D%0A%20%20%20%20%20%20%40keyframes%20pulse%7B0%25%2C100%25%7Bopacity%3A.4%7D50%25%7Bopacity%3A1%7D%7D%0A%20%20%20%20%20%20%40keyframes%20draw%7Bto%7Bstroke-dashoffset%3A0%7D%7D%0A%20%20%20%20%3C%2Fstyle%3E%0A%20%20%3C%2Fdefs%3E%0A%20%20%3Crect%20width%3D%27180%27%20height%3D%27180%27%20rx%3D%2738%27%20fill%3D%27url%28%2523bg%29%27%2F%3E%0A%20%20%3Ccircle%20class%3D%27spin%27%20cx%3D%2790%27%20cy%3D%2772%27%20r%3D%2738%27%20fill%3D%27none%27%20stroke%3D%27%252300e5a0%27%20stroke-width%3D%275%27%20stroke-dasharray%3D%2712%206%27%20opacity%3D%270.4%27%2F%3E%0A%20%20%3Ccircle%20cx%3D%2790%27%20cy%3D%2772%27%20r%3D%2728%27%20fill%3D%27none%27%20stroke%3D%27%252300e5a0%27%20stroke-width%3D%276%27%2F%3E%0A%20%20%3Cline%20class%3D%27dash%27%20x1%3D%2790%27%20y1%3D%2744%27%20x2%3D%2790%27%20y2%3D%27100%27%20stroke%3D%27%252300e5a0%27%20stroke-width%3D%275%27%20stroke-linecap%3D%27round%27%2F%3E%0A%20%20%3Cline%20class%3D%27dash%27%20x1%3D%2762%27%20y1%3D%2772%27%20x2%3D%27118%27%20y2%3D%2772%27%20stroke%3D%27%252300e5a0%27%20stroke-width%3D%275%27%20stroke-linecap%3D%27round%27%2F%3E%0A%20%20%3Ccircle%20class%3D%27pulse%27%20cx%3D%2790%27%20cy%3D%2772%27%20r%3D%276%27%20fill%3D%27%252300e5a0%27%2F%3E%0A%20%20%3Ctext%20x%3D%2790%27%20y%3D%27126%27%20font-family%3D%27-apple-system%2Csystem-ui%2Csans-serif%27%20font-size%3D%2713%27%20font-weight%3D%27700%27%20fill%3D%27%252300e5a0%27%20text-anchor%3D%27middle%27%20letter-spacing%3D%272%27%3EAYAAN%3C%2Ftext%3E%0A%20%20%3Ctext%20x%3D%2790%27%20y%3D%27147%27%20font-family%3D%27-apple-system%2Csystem-ui%2Csans-serif%27%20font-size%3D%2718%27%20font-weight%3D%27800%27%20fill%3D%27white%27%20text-anchor%3D%27middle%27%20letter-spacing%3D%27-0.5%27%3ENutriTrack%3C%2Ftext%3E%0A%3C%2Fsvg%3E">
+<title>NutriTrack</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+:root{
+  --bg:#0a0a0a;--surface:#161616;--surface2:#1e1e1e;--surface3:#272727;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --accent:#00e5a0;--accent2:#00b880;--accent-dim:rgba(0,229,160,0.12);
+  --text:#efefef;--text2:#909090;--text3:#484848;
+  --red:#ff5252;--orange:#ff9f43;--blue:#4dabf7;--purple:#cc5de8;
+  --radius:14px;--radius-sm:9px;
+  --safe-top:env(safe-area-inset-top,0px);--safe-bottom:env(safe-area-inset-bottom,0px);
+}
+html,body{background:var(--bg);color:var(--text);font-family:-apple-system,'SF Pro Display','Helvetica Neue',sans-serif;font-size:15px;height:100%;overflow:hidden;position:fixed;width:100%}
+#app{max-width:430px;margin:0 auto;height:100%;display:flex;flex-direction:column;overflow:hidden}
+.screen{display:none;flex-direction:column;height:100%;overflow:hidden}
+.screen.active{display:flex}
+.header{padding:calc(var(--safe-top)+50px) 20px 12px;flex-shrink:0}
+.header h1{font-size:25px;font-weight:700;letter-spacing:-0.5px}
+.header-sub{font-size:11px;color:var(--text2);margin-bottom:2px;letter-spacing:0.5px;text-transform:uppercase}
+.accent{color:var(--accent)}
+.scroll{flex:1;overflow-y:auto;padding:4px 16px 16px;-webkit-overflow-scrolling:touch}
+.card{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius);padding:16px;margin-bottom:12px}
+.card-row{display:flex;justify-content:space-between;align-items:center}
+.lbl{font-size:11px;color:var(--text2);text-transform:uppercase;letter-spacing:0.6px;margin-bottom:5px}
+.btn{display:flex;align-items:center;justify-content:center;gap:8px;width:100%;padding:14px;border-radius:var(--radius);border:none;cursor:pointer;font-size:15px;font-weight:600;transition:all .12s;font-family:inherit}
+.btn-accent{background:var(--accent);color:#0a0a0a}
+.btn-accent:active{transform:scale(0.97);opacity:.9}
+.btn-ghost{background:var(--surface2);color:var(--text);border:0.5px solid var(--border2)}
+.btn-ghost:active{transform:scale(0.97);opacity:.8}
+.btn-sm{padding:8px 14px;font-size:13px;width:auto;border-radius:var(--radius-sm)}
+.btn-danger{background:rgba(255,82,82,0.1);color:var(--red);border:0.5px solid rgba(255,82,82,0.22)}
+.nav{display:flex;background:rgba(10,10,10,0.97);border-top:0.5px solid var(--border2);padding:8px 0 calc(var(--safe-bottom)+8px);flex-shrink:0}
+.nav-item{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;padding:5px 0;cursor:pointer;color:var(--text3);font-size:10px;transition:color .15s}
+.nav-item.active{color:var(--accent)}
+.nav-icon{font-size:21px;line-height:1}
+input,select,textarea{background:var(--surface2);border:0.5px solid var(--border2);border-radius:var(--radius-sm);color:var(--text);padding:10px 12px;font-size:15px;width:100%;-webkit-appearance:none;font-family:inherit}
+input:focus,select:focus,textarea:focus{outline:none;border-color:var(--accent)}
+select option{background:#1e1e1e}
+.prog-wrap{background:var(--surface3);border-radius:20px;height:7px;overflow:hidden;margin-top:6px}
+.prog-fill{height:100%;border-radius:20px;transition:width .5s cubic-bezier(.34,1.56,.64,1)}
+.macro-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:12px}
+.macro-card{background:var(--surface2);border-radius:var(--radius-sm);padding:10px 8px;text-align:center}
+.meal-section{background:var(--surface);border:0.5px solid var(--border);border-radius:var(--radius);margin-bottom:10px;overflow:hidden}
+.meal-header{padding:13px 16px;display:flex;justify-content:space-between;align-items:center;cursor:pointer;user-select:none}
+.meal-body{display:none;padding:0 16px 14px}
+.meal-body.open{display:block}
+.food-item{display:flex;justify-content:space-between;align-items:center;padding:9px 0;border-bottom:0.5px solid var(--border)}
+.food-item:last-child{border-bottom:none}
+.drop{width:36px;height:36px;border-radius:50%;border:1.5px solid var(--border2);display:flex;align-items:center;justify-content:center;font-size:16px;cursor:pointer;transition:all .15s}
+.drop.filled{background:rgba(77,171,247,0.2);border-color:var(--blue)}
+.wt-chart{display:flex;align-items:flex-end;gap:5px;height:90px;margin-top:10px}
+.wt-bar-wrap{flex:1;display:flex;flex-direction:column;align-items:center;height:100%}
+.wt-bar-bg{width:100%;flex:1;background:var(--surface3);border-radius:4px;display:flex;align-items:flex-end;overflow:hidden}
+.wt-bar-fill{width:100%;background:var(--accent);border-radius:4px;transition:height .5s}
+.search-result{padding:11px 14px;border-bottom:0.5px solid var(--border);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:10px}
+.search-result:active{background:var(--surface2)}
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.9);z-index:300;display:flex;align-items:flex-end;justify-content:center}
+.modal-sheet{background:var(--surface);border-radius:22px 22px 0 0;padding:24px 20px calc(var(--safe-bottom)+24px);width:100%;max-width:430px;max-height:90vh;overflow-y:auto}
+.modal-handle{width:40px;height:4px;background:var(--surface3);border-radius:2px;margin:0 auto 20px}
+.stat-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px}
+.stat-card{background:var(--surface);border-radius:var(--radius);padding:14px;border:0.5px solid var(--border)}
+.section-title{font-size:17px;font-weight:700;margin:18px 0 11px;letter-spacing:-.3px}
+.section-title:first-child{margin-top:0}
+.goal-btn{background:var(--surface2);border:1.5px solid var(--border2);border-radius:var(--radius);padding:14px 16px;cursor:pointer;text-align:left;width:100%;margin-bottom:10px;color:var(--text);transition:all .15s;font-family:inherit}
+.goal-btn.sel{border-color:var(--accent);background:var(--accent-dim)}
+.tab-row{display:flex;gap:6px;margin-bottom:10px}
+.tab{flex:1;padding:8px;border-radius:var(--radius-sm);border:0.5px solid var(--border2);background:var(--surface2);color:var(--text2);font-size:13px;font-weight:500;cursor:pointer;text-align:center;transition:all .15s;font-family:inherit}
+.tab.active{background:var(--accent-dim);border-color:var(--accent);color:var(--accent)}
+.spinner{width:28px;height:28px;border:2.5px solid var(--surface3);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;margin:24px auto}
+.big-spinner{width:44px;height:44px;border:3px solid var(--surface3);border-top-color:var(--accent);border-radius:50%;animation:spin .8s linear infinite;margin:0 auto 20px}
+@keyframes spin{to{transform:rotate(360deg)}}
+.ob-step{display:none}.ob-step.active{display:block}
+.sync-dot{width:7px;height:7px;border-radius:50%;background:var(--accent);display:inline-block;margin-left:6px;animation:pulse 1.5s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+</style>
+</head>
+<body>
+<div id="app">
+
+<!-- LOGIN SCREEN -->
+<div id="screen-login" class="screen active">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px 32px calc(var(--safe-bottom)+40px)">
+    <div style="font-size:52px;margin-bottom:16px">🥗</div>
+    <h1 style="font-size:32px;font-weight:700;letter-spacing:-1px;margin-bottom:8px;text-align:center">Nutri<span class="accent">Track</span></h1>
+    <p style="color:var(--text2);font-size:15px;text-align:center;line-height:1.65;margin-bottom:48px">Your personal nutrition tracker.<br>Log food, track macros, hit your goals.</p>
+    <button id="google-signin-btn" class="btn" onclick="signInWithGoogle()" style="background:#fff;color:#1a1a1a;border-radius:var(--radius);padding:15px 24px;font-size:16px;font-weight:600;gap:12px;max-width:300px">
+      <svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.6 0 6.6 5.5 2.7 13.5l7.8 6C12.4 13.2 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17z"/><path fill="#FBBC05" d="M10.5 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8-6.1z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2.1 1.4-4.7 2.3-7.7 2.3-6.2 0-11.5-4.2-13.4-9.8l-8 6.1C6.6 42.5 14.6 48 24 48z"/></svg>
+      Continue with Google
+    </button>
+    <div id="login-error" style="color:var(--red);font-size:13px;text-align:center;margin-top:16px;display:none"></div>
+    <p style="color:var(--text3);font-size:12px;text-align:center;margin-top:32px;line-height:1.6">Your data is securely stored in the cloud<br>and synced across all your devices.</p>
+  </div>
+</div>
+
+<!-- LOADING SCREEN -->
+<div id="screen-loading" class="screen">
+  <div style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px">
+    <div class="big-spinner"></div>
+    <div style="color:var(--text2);font-size:15px" id="loading-msg">Loading your data…</div>
+  </div>
+</div>
+
+<!-- ONBOARDING -->
+<div id="screen-onboard" class="screen">
+<div style="flex:1;overflow-y:auto;padding:calc(var(--safe-top)+40px) 24px calc(var(--safe-bottom)+24px)">
+  <div id="ob1" class="ob-step active">
+    <div style="font-size:12px;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">Step 1 of 4</div>
+    <h1 style="font-size:26px;font-weight:700;margin-bottom:6px">Welcome, <span class="accent" id="ob-welcome-name">there</span>! 👋</h1>
+    <p style="color:var(--text2);font-size:14px;line-height:1.65;margin-bottom:28px">Let's set up your personalised nutrition goals. This only takes a minute.</p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+      <div><div class="lbl" style="margin-bottom:7px">Age</div><input type="number" id="ob-age" placeholder="25" min="10" max="100"></div>
+      <div><div class="lbl" style="margin-bottom:7px">Sex</div><select id="ob-sex"><option value="male">Male</option><option value="female">Female</option></select></div>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:28px">
+      <div><div class="lbl" style="margin-bottom:7px">Height (cm)</div><input type="number" id="ob-height" placeholder="175"></div>
+      <div><div class="lbl" style="margin-bottom:7px">Weight (kg)</div><input type="number" id="ob-weight" placeholder="75" step=".1"></div>
+    </div>
+    <button class="btn btn-accent" onclick="obNext(1)">Continue →</button>
+  </div>
+  <div id="ob2" class="ob-step">
+    <div style="font-size:12px;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">Step 2 of 4</div>
+    <h1 style="font-size:26px;font-weight:700;margin-bottom:20px">Your <span class="accent">Goal</span></h1>
+    <button class="goal-btn" id="goal-lose" onclick="selGoal('lose')"><div style="font-weight:600;font-size:16px">🔥 Lose Weight</div><div style="font-size:13px;color:var(--text2);margin-top:3px">Calorie deficit — burn body fat</div></button>
+    <button class="goal-btn" id="goal-maintain" onclick="selGoal('maintain')"><div style="font-weight:600;font-size:16px">⚖️ Maintain Weight</div><div style="font-size:13px;color:var(--text2);margin-top:3px">Eat at maintenance calories</div></button>
+    <button class="goal-btn" id="goal-gain" onclick="selGoal('gain')"><div style="font-weight:600;font-size:16px">💪 Build Muscle</div><div style="font-size:13px;color:var(--text2);margin-top:3px">Calorie surplus for muscle growth</div></button>
+    <div style="display:flex;gap:10px;margin-top:8px"><button class="btn btn-ghost" onclick="obGo(1)" style="flex:1">← Back</button><button class="btn btn-accent" onclick="obNext(2)" style="flex:2">Continue →</button></div>
+  </div>
+  <div id="ob3" class="ob-step">
+    <div style="font-size:12px;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">Step 3 of 4</div>
+    <h1 style="font-size:26px;font-weight:700;margin-bottom:20px">Activity <span class="accent">Level</span></h1>
+    <button class="goal-btn" id="act-sedentary" onclick="selAct('sedentary')"><div style="font-weight:600">🪑 Sedentary</div><div style="font-size:12px;color:var(--text2);margin-top:2px">Little or no exercise, desk job</div></button>
+    <button class="goal-btn" id="act-light" onclick="selAct('light')"><div style="font-weight:600">🚶 Lightly Active</div><div style="font-size:12px;color:var(--text2);margin-top:2px">Exercise 1–3 days/week</div></button>
+    <button class="goal-btn" id="act-moderate" onclick="selAct('moderate')"><div style="font-weight:600">🏃 Moderately Active</div><div style="font-size:12px;color:var(--text2);margin-top:2px">Exercise 3–5 days/week</div></button>
+    <button class="goal-btn" id="act-very" onclick="selAct('very')"><div style="font-weight:600">🔥 Very Active</div><div style="font-size:12px;color:var(--text2);margin-top:2px">Hard exercise 6–7 days/week</div></button>
+    <div style="display:flex;gap:10px;margin-top:8px"><button class="btn btn-ghost" onclick="obGo(2)" style="flex:1">← Back</button><button class="btn btn-accent" onclick="obNext(3)" style="flex:2">Continue →</button></div>
+  </div>
+  <div id="ob4" class="ob-step">
+    <div style="font-size:12px;color:var(--accent);letter-spacing:.5px;text-transform:uppercase;margin-bottom:8px">Step 4 of 4</div>
+    <h1 style="font-size:26px;font-weight:700;margin-bottom:6px">Your Daily <span class="accent">Plan</span></h1>
+    <p style="color:var(--text2);font-size:13px;margin-bottom:18px">Based on your stats (Mifflin-St Jeor):</p>
+    <div class="card" id="goals-preview"></div>
+    <p style="color:var(--text3);font-size:12px;margin-bottom:20px;line-height:1.5">Editable any time in Profile → Edit Goals.</p>
+    <div style="display:flex;gap:10px"><button class="btn btn-ghost" onclick="obGo(3)" style="flex:1">← Back</button><button class="btn btn-accent" onclick="finishOnboard()" style="flex:2">Start Tracking 🚀</button></div>
+  </div>
+</div>
+</div>
+
+<!-- DIARY -->
+<div id="screen-diary" class="screen">
+  <div class="header">
+    <div style="display:flex;justify-content:space-between;align-items:flex-start">
+      <div><div class="header-sub" id="diary-date-lbl">TODAY</div><h1 id="diary-title">Good morning</h1></div>
+      <div style="display:flex;gap:7px;align-items:center">
+        <button onclick="changeDay(-1)" style="background:var(--surface2);border:0.5px solid var(--border2);border-radius:50%;width:34px;height:34px;color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">‹</button>
+        <button onclick="changeDay(1)" style="background:var(--surface2);border:0.5px solid var(--border2);border-radius:50%;width:34px;height:34px;color:var(--text);font-size:18px;cursor:pointer;display:flex;align-items:center;justify-content:center">›</button>
+      </div>
+    </div>
+  </div>
+  <div class="scroll">
+    <div class="card" id="cal-card"></div>
+    <div class="macro-grid" id="macro-area"></div>
+    <div style="margin-top:16px" id="meals-area"></div>
+    <div class="card" id="water-card"></div>
+  </div>
+</div>
+
+<!-- SEARCH -->
+<div id="screen-search" class="screen">
+  <div class="header"><div class="header-sub">ADD FOOD</div><h1>Food <span class="accent">Search</span></h1></div>
+  <div style="padding:0 16px 8px;flex-shrink:0">
+    <div style="position:relative;margin-bottom:10px">
+      <span style="position:absolute;left:11px;top:50%;transform:translateY(-50%);color:var(--text3);pointer-events:none">🔍</span>
+      <input type="text" id="fsearch" placeholder="Search 3M+ real foods…" style="padding-left:36px" oninput="onInput()">
+    </div>
+    <div class="tab-row">
+      <button class="tab active" id="tab-search" onclick="switchTab('search')">🌐 Search</button>
+      <button class="tab" id="tab-custom" onclick="switchTab('custom')">✏️ Create</button>
+      <button class="tab" id="tab-mine" onclick="switchTab('mine')">⭐ My Foods</button>
+    </div>
+  </div>
+  <div id="pane-search" class="scroll" style="padding-top:0">
+    <div id="search-results"><div style="color:var(--text3);font-size:14px;padding:24px;text-align:center">Powered by <span style="color:var(--accent);font-weight:600">Open Food Facts</span><br><span style="font-size:12px">3M+ products + your custom foods</span></div></div>
+  </div>
+  <div id="pane-custom" class="scroll" style="display:none;padding-top:0">
+    <div class="card">
+      <div style="font-size:16px;font-weight:700;margin-bottom:14px">✏️ Create Custom Food</div>
+      <div class="lbl" style="margin-bottom:6px">Food Name *</div>
+      <input type="text" id="cf-name" placeholder="e.g. Mum's Dal, Homemade Roti…" style="margin-bottom:12px">
+      <div class="lbl" style="margin-bottom:6px">Serving Size</div>
+      <input type="text" id="cf-serving" placeholder="e.g. 1 bowl (200g)" style="margin-bottom:12px">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+        <div><div class="lbl" style="margin-bottom:6px">Calories *</div><input type="number" id="cf-cal" placeholder="250" min="0"></div>
+        <div><div class="lbl" style="margin-bottom:6px">Protein (g)</div><input type="number" id="cf-prot" placeholder="12" min="0" step=".1"></div>
+        <div><div class="lbl" style="margin-bottom:6px">Carbs (g)</div><input type="number" id="cf-carb" placeholder="30" min="0" step=".1"></div>
+        <div><div class="lbl" style="margin-bottom:6px">Fat (g)</div><input type="number" id="cf-fat" placeholder="8" min="0" step=".1"></div>
+      </div>
+      <button class="btn btn-accent" onclick="saveCustomFood()">Save & Add to Diary</button>
+    </div>
+    <div style="color:var(--text3);font-size:13px;text-align:center;padding:0 0 8px">Saved to your account — reuse any time.</div>
+  </div>
+  <div id="pane-mine" class="scroll" style="display:none;padding-top:0">
+    <div id="my-foods-list"><div style="color:var(--text3);font-size:14px;padding:24px;text-align:center">No custom foods yet.</div></div>
+  </div>
+</div>
+
+<!-- WEIGHT -->
+<div id="screen-weight" class="screen">
+  <div class="header"><div class="header-sub">TRACK</div><h1>Weight <span class="accent">Log</span></h1></div>
+  <div class="scroll">
+    <div class="card">
+      <div class="lbl">Log Today's Weight</div>
+      <div style="display:flex;gap:10px;margin-top:8px">
+        <input type="number" id="weight-input" placeholder="e.g. 75.5" step=".1" style="flex:1">
+        <button class="btn btn-accent btn-sm" onclick="logWeight()" style="width:auto;padding:10px 20px">Log</button>
+      </div>
+    </div>
+    <div class="card"><div class="lbl">Progress</div><div class="wt-chart" id="wt-chart"></div><div style="display:flex;gap:5px;margin-top:5px" id="wt-labels"></div></div>
+    <div class="section-title">History</div>
+    <div id="wt-history"></div>
+  </div>
+</div>
+
+<!-- PROFILE -->
+<div id="screen-profile" class="screen">
+  <div class="header"><div class="header-sub">YOUR</div><h1>Profile & <span class="accent">Goals</span></h1></div>
+  <div class="scroll" id="profile-area"></div>
+</div>
+
+<nav class="nav" id="main-nav" style="display:none">
+  <div class="nav-item active" onclick="showScreen('diary')" id="nav-diary"><div class="nav-icon">📋</div><span>Diary</span></div>
+  <div class="nav-item" onclick="showScreen('search')" id="nav-search"><div class="nav-icon">🔍</div><span>Add Food</span></div>
+  <div class="nav-item" onclick="showScreen('weight')" id="nav-weight"><div class="nav-icon">⚖️</div><span>Weight</span></div>
+  <div class="nav-item" onclick="showScreen('profile')" id="nav-profile"><div class="nav-icon">👤</div><span>Profile</span></div>
+</nav>
+</div>
+
+<!-- Firebase SDKs -->
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.12.0/firebase-app.js";
+import { getAuth, GoogleAuthProvider, signInWithPopup, signOut, onAuthStateChanged }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-auth.js";
+import { getFirestore, doc, getDoc, setDoc, updateDoc, onSnapshot }
+  from "https://www.gstatic.com/firebasejs/10.12.0/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "AIzaSyBZYF-93lPQ6vPeYllrGvahQy0hR7MwbdU",
+  authDomain: "nutritracker-8985a.firebaseapp.com",
+  projectId: "nutritracker-8985a",
+  storageBucket: "nutritracker-8985a.firebasestorage.app",
+  messagingSenderId: "331398760310",
+  appId: "1:331398760310:web:9fd27e0c06af6b351b5c57"
+};
+
+const fbApp = initializeApp(firebaseConfig);
+const auth = getAuth(fbApp);
+const db = getFirestore(fbApp);
+
+// ── LOCAL FOOD DB ────────────────────────────────────────────────────────────
+const LOCAL=[
+  {name:'Chicken Breast (cooked)',cal:165,protein:31,carbs:0,fat:3.6,serving:'100g'},
+  {name:'Brown Rice (cooked)',cal:216,protein:5,carbs:45,fat:1.8,serving:'1 cup (195g)'},
+  {name:'Whole Egg',cal:78,protein:6,carbs:0.6,fat:5,serving:'1 large'},
+  {name:'Oats (dry)',cal:389,protein:17,carbs:66,fat:7,serving:'100g'},
+  {name:'Banana',cal:89,protein:1.1,carbs:23,fat:0.3,serving:'1 medium'},
+  {name:'Greek Yogurt (0% fat)',cal:59,protein:10,carbs:3.6,fat:0.4,serving:'100g'},
+  {name:'Salmon (cooked)',cal:208,protein:28,carbs:0,fat:10,serving:'100g'},
+  {name:'Sweet Potato',cal:103,protein:2.3,carbs:24,fat:0.1,serving:'1 medium'},
+  {name:'Almonds',cal:164,protein:6,carbs:6,fat:14,serving:'28g'},
+  {name:'Whey Protein',cal:120,protein:24,carbs:3,fat:2,serving:'1 scoop (30g)'},
+  {name:'White Rice (cooked)',cal:206,protein:4.3,carbs:45,fat:0.4,serving:'1 cup'},
+  {name:'Avocado',cal:160,protein:2,carbs:9,fat:15,serving:'½ fruit'},
+  {name:'Tuna (canned)',cal:116,protein:26,carbs:0,fat:0.8,serving:'100g'},
+  {name:'Peanut Butter',cal:188,protein:8,carbs:6,fat:16,serving:'2 tbsp'},
+  {name:'Lentils (cooked)',cal:230,protein:18,carbs:40,fat:0.8,serving:'1 cup'},
+  {name:'Broccoli',cal:35,protein:2.4,carbs:7,fat:0.4,serving:'100g'},
+  {name:'Whole Milk',cal:149,protein:8,carbs:12,fat:8,serving:'1 cup'},
+  {name:'Olive Oil',cal:119,protein:0,carbs:0,fat:14,serving:'1 tbsp'},
+  {name:'Quinoa (cooked)',cal:222,protein:8,carbs:39,fat:3.5,serving:'1 cup'},
+  {name:'Egg Whites',cal:17,protein:3.6,carbs:0.2,fat:0,serving:'1 egg white'},
+  {name:'Cottage Cheese',cal:98,protein:11,carbs:3.4,fat:4.3,serving:'100g'},
+  {name:'Chickpeas (cooked)',cal:269,protein:15,carbs:45,fat:4.2,serving:'1 cup'},
+  // ── BREADS & RICE ────────────────────────────────────────────────────
+  {name:'Roti (whole wheat)',cal:71,protein:3,carbs:15,fat:0.4,serving:'1 medium (30g)'},
+  {name:'Roti (maida / plain)',cal:80,protein:2.5,carbs:16,fat:1,serving:'1 medium (30g)'},
+  {name:'Paratha (plain)',cal:180,protein:4,carbs:28,fat:6,serving:'1 medium (60g)'},
+  {name:'Paratha (aloo stuffed)',cal:220,protein:5,carbs:34,fat:8,serving:'1 medium (80g)'},
+  {name:'Paratha (paneer stuffed)',cal:250,protein:8,carbs:30,fat:11,serving:'1 medium (90g)'},
+  {name:'Naan (plain)',cal:262,protein:8,carbs:45,fat:5,serving:'1 piece (90g)'},
+  {name:'Naan (butter)',cal:320,protein:8,carbs:46,fat:11,serving:'1 piece (90g)'},
+  {name:'Puri',cal:112,protein:2,carbs:13,fat:6,serving:'1 piece (30g)'},
+  {name:'Bhatura',cal:220,protein:5,carbs:32,fat:8,serving:'1 piece (70g)'},
+  {name:'Basmati Rice (cooked)',cal:210,protein:4.4,carbs:45,fat:0.4,serving:'1 cup (180g)'},
+  {name:'Jeera Rice',cal:230,protein:4,carbs:47,fat:4,serving:'1 cup (180g)'},
+  {name:'Poha (cooked)',cal:180,protein:3,carbs:36,fat:3,serving:'1 plate (100g)'},
+  {name:'Upma',cal:170,protein:4,carbs:28,fat:5,serving:'1 bowl (150g)'},
+  {name:'Khichdi',cal:180,protein:7,carbs:30,fat:4,serving:'1 bowl (200g)'},
+  {name:'Biryani (chicken)',cal:290,protein:18,carbs:38,fat:7,serving:'1 plate (250g)'},
+  {name:'Biryani (veg)',cal:240,protein:6,carbs:42,fat:6,serving:'1 plate (250g)'},
+  {name:'Pulao (veg)',cal:220,protein:5,carbs:40,fat:5,serving:'1 bowl (200g)'},
+  {name:'Chapati (multigrain)',cal:65,protein:3,carbs:13,fat:0.8,serving:'1 medium (30g)'},
+  // ── SOUTH INDIAN ─────────────────────────────────────────────────────
+  {name:'Idli (steamed)',cal:39,protein:2,carbs:8,fat:0.2,serving:'1 piece (40g)'},
+  {name:'Dosa (plain)',cal:168,protein:4,carbs:28,fat:4,serving:'1 medium (80g)'},
+  {name:'Masala Dosa',cal:230,protein:5,carbs:36,fat:8,serving:'1 piece (120g)'},
+  {name:'Uttapam',cal:190,protein:5,carbs:30,fat:6,serving:'1 medium (100g)'},
+  {name:'Medu Vada',cal:145,protein:4,carbs:18,fat:7,serving:'1 piece (60g)'},
+  {name:'Sambar',cal:55,protein:3,carbs:8,fat:1.5,serving:'1 cup (200ml)'},
+  {name:'Coconut Chutney',cal:80,protein:1,carbs:4,fat:7,serving:'2 tbsp (30g)'},
+  {name:'Rasam',cal:30,protein:1,carbs:5,fat:0.5,serving:'1 cup (200ml)'},
+  {name:'Appam',cal:120,protein:2.5,carbs:23,fat:2,serving:'1 piece (60g)'},
+  {name:'Puttu',cal:180,protein:4,carbs:38,fat:1,serving:'1 serving (100g)'},
+  {name:'Pesarattu',cal:140,protein:7,carbs:22,fat:3,serving:'1 piece (80g)'},
+  {name:'Pongal (ven)',cal:210,protein:5,carbs:32,fat:8,serving:'1 bowl (150g)'},
+  {name:'Curd Rice',cal:165,protein:5,carbs:30,fat:3,serving:'1 bowl (200g)'},
+  {name:'Tamarind Rice',cal:210,protein:4,carbs:38,fat:5,serving:'1 bowl (200g)'},
+  {name:'Lemon Rice',cal:200,protein:4,carbs:36,fat:5,serving:'1 bowl (200g)'},
+  // ── DALS & LEGUMES ───────────────────────────────────────────────────
+  {name:'Dal Tadka',cal:130,protein:8,carbs:18,fat:4,serving:'1 bowl (200g)'},
+  {name:'Dal Makhani',cal:180,protein:9,carbs:22,fat:7,serving:'1 bowl (200g)'},
+  {name:'Chana Dal (cooked)',cal:164,protein:9,carbs:27,fat:2,serving:'1 cup (165g)'},
+  {name:'Moong Dal (cooked)',cal:147,protein:10,carbs:26,fat:0.8,serving:'1 cup (165g)'},
+  {name:'Moong Dal (sprouted)',cal:105,protein:8,carbs:18,fat:0.6,serving:'1 cup (100g)'},
+  {name:'Masoor Dal (cooked)',cal:148,protein:11,carbs:25,fat:0.5,serving:'1 cup (165g)'},
+  {name:'Toor Dal (cooked)',cal:150,protein:10,carbs:26,fat:0.5,serving:'1 cup (165g)'},
+  {name:'Urad Dal (cooked)',cal:160,protein:11,carbs:26,fat:0.8,serving:'1 cup (165g)'},
+  {name:'Rajma (cooked)',cal:225,protein:15,carbs:40,fat:0.9,serving:'1 cup (170g)'},
+  {name:'Rajma Chawal',cal:380,protein:14,carbs:68,fat:5,serving:'1 plate (350g)'},
+  {name:'Chole (cooked)',cal:210,protein:11,carbs:35,fat:4,serving:'1 cup (200g)'},
+  {name:'Chole Bhature',cal:520,protein:14,carbs:70,fat:20,serving:'1 plate (2 bhature)'},
+  {name:'Black Chana (kala chana)',cal:180,protein:10,carbs:30,fat:3,serving:'1 cup (165g)'},
+  {name:'Lobiya (black eyed peas)',cal:160,protein:11,carbs:28,fat:0.7,serving:'1 cup (165g)'},
+  // ── CURRIES & SABZIS ─────────────────────────────────────────────────
+  {name:'Paneer',cal:265,protein:18,carbs:4,fat:20,serving:'100g'},
+  {name:'Paneer Butter Masala',cal:280,protein:14,carbs:12,fat:21,serving:'1 bowl (200g)'},
+  {name:'Paneer Tikka',cal:240,protein:16,carbs:8,fat:16,serving:'6 pieces (150g)'},
+  {name:'Palak Paneer',cal:220,protein:13,carbs:10,fat:15,serving:'1 bowl (200g)'},
+  {name:'Shahi Paneer',cal:310,protein:14,carbs:14,fat:23,serving:'1 bowl (200g)'},
+  {name:'Matar Paneer',cal:240,protein:12,carbs:18,fat:14,serving:'1 bowl (200g)'},
+  {name:'Aloo Gobi',cal:130,protein:4,carbs:20,fat:5,serving:'1 bowl (200g)'},
+  {name:'Aloo Matar',cal:150,protein:4,carbs:24,fat:5,serving:'1 bowl (200g)'},
+  {name:'Aloo Sabzi (dry)',cal:140,protein:3,carbs:22,fat:5,serving:'1 bowl (150g)'},
+  {name:'Bhindi (okra) masala',cal:90,protein:3,carbs:10,fat:5,serving:'1 bowl (150g)'},
+  {name:'Baingan Bharta',cal:110,protein:3,carbs:12,fat:6,serving:'1 bowl (150g)'},
+  {name:'Lauki (bottle gourd) sabzi',cal:60,protein:2,carbs:8,fat:2,serving:'1 bowl (150g)'},
+  {name:'Palak (spinach) sabzi',cal:80,protein:4,carbs:8,fat:4,serving:'1 bowl (150g)'},
+  {name:'Methi Sabzi',cal:90,protein:4,carbs:10,fat:4,serving:'1 bowl (150g)'},
+  {name:'Kadai Vegetables',cal:160,protein:5,carbs:18,fat:8,serving:'1 bowl (200g)'},
+  {name:'Mix Veg Curry',cal:140,protein:4,carbs:18,fat:6,serving:'1 bowl (200g)'},
+  {name:'Baingan (brinjal) fry',cal:100,protein:2,carbs:9,fat:6,serving:'1 bowl (150g)'},
+  {name:'Karela (bitter gourd) fry',cal:70,protein:2,carbs:8,fat:3,serving:'1 bowl (150g)'},
+  {name:'Tinda sabzi',cal:65,protein:2,carbs:8,fat:3,serving:'1 bowl (150g)'},
+  {name:'Drumstick (moringa) curry',cal:85,protein:3,carbs:10,fat:4,serving:'1 bowl (150g)'},
+  // ── CHICKEN & MEAT ───────────────────────────────────────────────────
+  {name:'Chicken Curry (with bone)',cal:200,protein:20,carbs:5,fat:12,serving:'1 bowl (200g)'},
+  {name:'Chicken Curry (boneless)',cal:220,protein:24,carbs:5,fat:12,serving:'1 bowl (200g)'},
+  {name:'Chicken Tikka Masala',cal:280,protein:26,carbs:10,fat:16,serving:'1 bowl (200g)'},
+  {name:'Butter Chicken',cal:300,protein:25,carbs:12,fat:18,serving:'1 bowl (200g)'},
+  {name:'Chicken Biryani',cal:290,protein:18,carbs:38,fat:7,serving:'1 plate (250g)'},
+  {name:'Chicken Kebab / Seekh',cal:170,protein:18,carbs:4,fat:9,serving:'2 pieces (100g)'},
+  {name:'Tandoori Chicken',cal:190,protein:26,carbs:4,fat:8,serving:'2 pieces (150g)'},
+  {name:'Mutton Curry',cal:260,protein:22,carbs:5,fat:18,serving:'1 bowl (200g)'},
+  {name:'Mutton Biryani',cal:330,protein:20,carbs:40,fat:10,serving:'1 plate (250g)'},
+  {name:'Keema (minced mutton)',cal:280,protein:24,carbs:6,fat:18,serving:'1 bowl (150g)'},
+  {name:'Keema Matar',cal:250,protein:20,carbs:12,fat:15,serving:'1 bowl (200g)'},
+  {name:'Fish Curry (Indian)',cal:190,protein:22,carbs:6,fat:9,serving:'1 bowl (200g)'},
+  {name:'Fish Fry (Indian style)',cal:210,protein:24,carbs:5,fat:11,serving:'2 pieces (150g)'},
+  {name:'Prawn Masala',cal:180,protein:20,carbs:6,fat:9,serving:'1 bowl (150g)'},
+  {name:'Egg Bhurji',cal:180,protein:12,carbs:4,fat:13,serving:'2 eggs (120g)'},
+  {name:'Egg Curry',cal:195,protein:13,carbs:6,fat:14,serving:'2 eggs + gravy'},
+  {name:'Omelette (Indian masala)',cal:170,protein:12,carbs:3,fat:12,serving:'2 eggs (110g)'},
+  // ── SNACKS & STREET FOOD ─────────────────────────────────────────────
+  {name:'Samosa (veg)',cal:130,protein:3,carbs:18,fat:6,serving:'1 piece (60g)'},
+  {name:'Samosa (keema)',cal:150,protein:5,carbs:16,fat:8,serving:'1 piece (65g)'},
+  {name:'Kachori',cal:180,protein:4,carbs:22,fat:9,serving:'1 piece (70g)'},
+  {name:'Pakora (veg / mix)',cal:120,protein:3,carbs:14,fat:6,serving:'4 pieces (60g)'},
+  {name:'Pakora (paneer)',cal:150,protein:6,carbs:12,fat:9,serving:'4 pieces (70g)'},
+  {name:'Pav Bhaji',cal:380,protein:9,carbs:58,fat:13,serving:'1 plate (2 pav + bhaji)'},
+  {name:'Bhaji (pav bhaji)',cal:140,protein:4,carbs:18,fat:6,serving:'1 bowl (150g)'},
+  {name:'Vada Pav',cal:290,protein:7,carbs:42,fat:11,serving:'1 piece'},
+  {name:'Misal Pav',cal:350,protein:12,carbs:52,fat:11,serving:'1 plate'},
+  {name:'Pani Puri / Golgappa',cal:50,protein:1,carbs:9,fat:1.5,serving:'4 pieces'},
+  {name:'Bhel Puri',cal:150,protein:4,carbs:28,fat:3,serving:'1 plate (100g)'},
+  {name:'Sev Puri',cal:180,protein:4,carbs:26,fat:7,serving:'1 plate (100g)'},
+  {name:'Dahi Puri',cal:200,protein:5,carbs:30,fat:7,serving:'1 plate (120g)'},
+  {name:'Aloo Tikki',cal:150,protein:3,carbs:22,fat:6,serving:'2 pieces (100g)'},
+  {name:'Aloo Chaat',cal:200,protein:4,carbs:30,fat:8,serving:'1 plate (150g)'},
+  {name:'Papdi Chaat',cal:240,protein:6,carbs:34,fat:10,serving:'1 plate (150g)'},
+  {name:'Dahi Vada',cal:180,protein:7,carbs:25,fat:6,serving:'2 pieces (150g)'},
+  {name:'Dabeli',cal:280,protein:7,carbs:42,fat:10,serving:'1 piece'},
+  {name:'Kathi Roll (chicken)',cal:350,protein:20,carbs:42,fat:11,serving:'1 roll'},
+  {name:'Kathi Roll (paneer)',cal:320,protein:14,carbs:42,fat:11,serving:'1 roll'},
+  {name:'Spring Roll (veg)',cal:130,protein:3,carbs:18,fat:6,serving:'1 piece (70g)'},
+  {name:'Momos (veg, steamed)',cal:35,protein:1.5,carbs:6,fat:0.5,serving:'1 piece (30g)'},
+  {name:'Momos (chicken, steamed)',cal:45,protein:3,carbs:6,fat:1,serving:'1 piece (35g)'},
+  {name:'Momos (fried)',cal:65,protein:2,carbs:7,fat:3,serving:'1 piece (35g)'},
+  {name:'Dhokla',cal:160,protein:6,carbs:28,fat:3,serving:'4 pieces (100g)'},
+  {name:'Khandvi',cal:130,protein:5,carbs:18,fat:4,serving:'6 rolls (80g)'},
+  {name:'Thepla',cal:130,protein:4,carbs:20,fat:4,serving:'1 piece (50g)'},
+  {name:'Fafda',cal:170,protein:5,carbs:22,fat:7,serving:'1 serving (50g)'},
+  {name:'Chakli',cal:200,protein:4,carbs:24,fat:10,serving:'4 pieces (50g)'},
+  {name:'Murukku',cal:220,protein:4,carbs:26,fat:11,serving:'4 pieces (50g)'},
+  {name:'Mixture / Namkeen',cal:480,protein:10,carbs:56,fat:26,serving:'100g'},
+  {name:'Mathri',cal:200,protein:4,carbs:24,fat:10,serving:'4 pieces (50g)'},
+  {name:'Pappadom (fried)',cal:80,protein:3,carbs:10,fat:4,serving:'1 piece (20g)'},
+  {name:'Pappadom (roasted)',cal:50,protein:3,carbs:10,fat:0.5,serving:'1 piece (20g)'},
+  // ── RICE DISHES ──────────────────────────────────────────────────────
+  {name:'Dal Rice',cal:320,protein:12,carbs:58,fat:5,serving:'1 plate (350g)'},
+  {name:'Khichdi',cal:180,protein:7,carbs:30,fat:4,serving:'1 bowl (200g)'},
+  {name:'Poha (cooked)',cal:180,protein:3,carbs:36,fat:3,serving:'1 plate (150g)'},
+  {name:'Upma',cal:170,protein:4,carbs:28,fat:5,serving:'1 bowl (150g)'},
+  {name:'Rava Idli',cal:135,protein:4,carbs:22,fat:4,serving:'2 pieces (100g)'},
+  {name:'Pongal (sweet)',cal:280,protein:4,carbs:52,fat:8,serving:'1 bowl (150g)'},
+  {name:'Bisi Bele Bath',cal:220,protein:7,carbs:36,fat:7,serving:'1 bowl (200g)'},
+  {name:'Vangi Bath',cal:200,protein:4,carbs:36,fat:5,serving:'1 bowl (200g)'},
+  // ── DAIRY & BEVERAGES ────────────────────────────────────────────────
+  {name:'Curd / Dahi (full fat)',cal:61,protein:3.5,carbs:4.7,fat:3.3,serving:'100g'},
+  {name:'Curd / Dahi (low fat)',cal:40,protein:4,carbs:5,fat:0.5,serving:'100g'},
+  {name:'Lassi (sweet)',cal:240,protein:7,carbs:38,fat:7,serving:'1 glass (300ml)'},
+  {name:'Lassi (salted)',cal:120,protein:6,carbs:14,fat:4,serving:'1 glass (300ml)'},
+  {name:'Chaas / Buttermilk',cal:50,protein:3,carbs:6,fat:1.5,serving:'1 glass (250ml)'},
+  {name:'Masala Chai (with milk+sugar)',cal:60,protein:2,carbs:9,fat:2,serving:'1 cup (150ml)'},
+  {name:'Masala Chai (no sugar)',cal:30,protein:2,carbs:3,fat:2,serving:'1 cup (150ml)'},
+  {name:'Turmeric Milk (haldi doodh)',cal:130,protein:5,carbs:14,fat:6,serving:'1 glass (250ml)'},
+  {name:'Paneer (homemade)',cal:265,protein:18,carbs:4,fat:20,serving:'100g'},
+  {name:'Khoa / Mawa',cal:380,protein:17,carbs:26,fat:24,serving:'100g'},
+  {name:'Ghee',cal:112,protein:0,carbs:0,fat:13,serving:'1 tbsp (14g)'},
+  {name:'Amul Butter',cal:100,protein:0.3,carbs:0,fat:11,serving:'1 tbsp (14g)'},
+  {name:'Fresh Coconut',cal:160,protein:1.5,carbs:7,fat:15,serving:'50g'},
+  {name:'Coconut Milk',cal:230,protein:2.3,carbs:6,fat:24,serving:'100ml'},
+  {name:'Coconut Water',cal:46,protein:1.7,carbs:9,fat:0.5,serving:'1 glass (240ml)'},
+  // ── FRUITS (INDIAN) ──────────────────────────────────────────────────
+  {name:'Mango (Alphonso)',cal:70,protein:0.8,carbs:17,fat:0.3,serving:'100g'},
+  {name:'Mango (Kesar)',cal:65,protein:0.7,carbs:16,fat:0.3,serving:'100g'},
+  {name:'Guava',cal:68,protein:2.6,carbs:14,fat:1,serving:'1 medium (100g)'},
+  {name:'Papaya',cal:43,protein:0.5,carbs:11,fat:0.3,serving:'1 cup (140g)'},
+  {name:'Chikoo / Sapodilla',cal:83,protein:0.4,carbs:20,fat:1.1,serving:'1 medium (100g)'},
+  {name:'Jamun / Java Plum',cal:60,protein:0.7,carbs:14,fat:0.2,serving:'100g'},
+  {name:'Amla / Indian Gooseberry',cal:44,protein:0.9,carbs:10,fat:0.6,serving:'100g'},
+  {name:'Custard Apple (Sitaphal)',cal:101,protein:1.7,carbs:25,fat:0.6,serving:'100g'},
+  {name:'Jackfruit (raw)',cal:95,protein:1.7,carbs:23,fat:0.6,serving:'100g'},
+  {name:'Jackfruit (ripe)',cal:155,protein:2.8,carbs:38,fat:1,serving:'100g'},
+  {name:'Pomegranate',cal:83,protein:1.7,carbs:19,fat:1.2,serving:'100g'},
+  {name:'Watermelon',cal:30,protein:0.6,carbs:8,fat:0.2,serving:'1 slice (150g)'},
+  {name:'Litchi',cal:66,protein:0.8,carbs:17,fat:0.4,serving:'10 pieces (100g)'},
+  // ── SWEETS & DESSERTS ────────────────────────────────────────────────
+  {name:'Gulab Jamun',cal:150,protein:2,carbs:24,fat:6,serving:'1 piece (50g)'},
+  {name:'Rasgulla',cal:110,protein:3,carbs:20,fat:3,serving:'1 piece (50g)'},
+  {name:'Jalebi',cal:150,protein:2,carbs:30,fat:4,serving:'2 pieces (50g)'},
+  {name:'Halwa (sooji / rava)',cal:250,protein:4,carbs:38,fat:10,serving:'1 bowl (100g)'},
+  {name:'Halwa (gajar / carrot)',cal:200,protein:4,carbs:30,fat:8,serving:'1 bowl (100g)'},
+  {name:'Kheer',cal:200,protein:6,carbs:34,fat:6,serving:'1 bowl (150g)'},
+  {name:'Payasam',cal:220,protein:5,carbs:36,fat:7,serving:'1 bowl (150g)'},
+  {name:'Ladoo (besan)',cal:170,protein:4,carbs:22,fat:8,serving:'1 piece (50g)'},
+  {name:'Ladoo (boondi)',cal:160,protein:3,carbs:24,fat:7,serving:'1 piece (50g)'},
+  {name:'Barfi (plain)',cal:180,protein:4,carbs:26,fat:8,serving:'1 piece (50g)'},
+  {name:'Barfi (kaju / cashew)',cal:220,protein:5,carbs:28,fat:11,serving:'1 piece (50g)'},
+  {name:'Peda',cal:160,protein:4,carbs:24,fat:6,serving:'1 piece (40g)'},
+  {name:'Mysore Pak',cal:230,protein:4,carbs:28,fat:13,serving:'1 piece (50g)'},
+  {name:'Imarti',cal:140,protein:2,carbs:28,fat:3,serving:'1 piece (50g)'},
+  {name:'Shrikhand',cal:210,protein:6,carbs:32,fat:7,serving:'1 bowl (100g)'},
+  {name:'Rasmalai',cal:170,protein:6,carbs:22,fat:7,serving:'2 pieces (100g)'},
+  {name:'Kulfi (malai)',cal:180,protein:5,carbs:20,fat:9,serving:'1 stick (80g)'},
+  {name:'Kulfi (mango)',cal:170,protein:4,carbs:22,fat:8,serving:'1 stick (80g)'},
+  // ── BREAKFAST ────────────────────────────────────────────────────────
+  {name:'Idli (steamed)',cal:39,protein:2,carbs:8,fat:0.2,serving:'1 piece (40g)'},
+  {name:'Dosa (plain)',cal:168,protein:4,carbs:28,fat:4,serving:'1 medium (80g)'},
+  {name:'Sabudana Khichdi',cal:330,protein:3,carbs:60,fat:9,serving:'1 bowl (200g)'},
+  {name:'Aloo Paratha (with butter)',cal:280,protein:6,carbs:40,fat:11,serving:'1 piece (100g)'},
+  {name:'Bread Upma',cal:200,protein:5,carbs:32,fat:6,serving:'1 plate (150g)'},
+  {name:'Pesarattu',cal:140,protein:7,carbs:22,fat:3,serving:'1 piece (80g)'},
+  {name:'Sheera / Halwa (breakfast)',cal:230,protein:4,carbs:36,fat:9,serving:'1 bowl (100g)'},
+  // ── CONDIMENTS & EXTRAS ──────────────────────────────────────────────
+  {name:'Ghee',cal:112,protein:0,carbs:0,fat:13,serving:'1 tbsp (14g)'},
+  {name:'Coconut Oil',cal:120,protein:0,carbs:0,fat:14,serving:'1 tbsp (14g)'},
+  {name:'Mustard Oil',cal:120,protein:0,carbs:0,fat:14,serving:'1 tbsp (14g)'},
+  {name:'Pickle (achar)',cal:30,protein:0.5,carbs:3,fat:2,serving:'1 tbsp (15g)'},
+  {name:'Papad (fried)',cal:80,protein:3,carbs:10,fat:4,serving:'1 piece (20g)'},
+  {name:'Chutney (mint/pudina)',cal:15,protein:0.5,carbs:2,fat:0.5,serving:'2 tbsp (30g)'},
+  {name:'Chutney (tamarind)',cal:40,protein:0.5,carbs:10,fat:0.2,serving:'2 tbsp (30g)'},
+  {name:'Raita',cal:60,protein:3,carbs:5,fat:3,serving:'1 bowl (100g)'},
+  {name:'Boondi Raita',cal:90,protein:3,carbs:10,fat:4,serving:'1 bowl (100g)'},
+];
+
+const MEALS=['Breakfast','Lunch','Dinner','Snacks'];
+
+// ── APP STATE ────────────────────────────────────────────────────────────────
+let currentUser = null;
+let S = {
+  profile:null, goals:null, diary:{}, weights:[], customFoods:[],
+  pendingMeal:'Snacks', dayOff:0, sg:null, sa:null, searchTimer:null
+};
+let unsubscribe = null;
+
+// ── FIREBASE HELPERS ─────────────────────────────────────────────────────────
+function userDoc() { return doc(db, 'users', currentUser.uid); }
+
+async function loadUserData() {
+  setLoading('Loading your data…');
+  try {
+    const snap = await getDoc(userDoc());
+    if (snap.exists()) {
+      const d = snap.data();
+      S.profile = d.profile || null;
+      S.goals = d.goals || null;
+      S.diary = d.diary || {};
+      S.weights = d.weights || [];
+      S.customFoods = d.customFoods || [];
+    }
+    // Real-time listener for cross-device sync
+    if (unsubscribe) unsubscribe();
+    unsubscribe = onSnapshot(userDoc(), (snap) => {
+      if (!snap.exists()) return;
+      const d = snap.data();
+      S.diary = d.diary || S.diary;
+      S.weights = d.weights || S.weights;
+      S.customFoods = d.customFoods || S.customFoods;
+      const active = document.querySelector('.screen.active')?.id;
+      if (active === 'screen-diary') renderDiary();
+      if (active === 'screen-weight') renderWeight();
+    });
+  } catch(e) { console.error(e); }
+  // Always dismiss loading and proceed
+  if (!S.profile || !S.goals) {
+    showOnboarding(currentUser);
+  } else {
+    launchApp();
+  }
+}
+
+async function cloudSave(fields) {
+  if (!currentUser) return;
+  try {
+    await setDoc(userDoc(), { ...fields }, { merge: true });
+  } catch(e) { console.error('Save error:', e); }
+}
+
+async function save() {
+  await cloudSave({
+    profile: S.profile,
+    goals: S.goals,
+    diary: S.diary,
+    weights: S.weights,
+    customFoods: S.customFoods,
+    updatedAt: new Date().toISOString()
+  });
+}
+
+// ── AUTH ─────────────────────────────────────────────────────────────────────
+window.signInWithGoogle = async function() {
+  const btn = document.getElementById('google-signin-btn');
+  btn.textContent = 'Signing in…';
+  btn.disabled = true;
+  try {
+    const provider = new GoogleAuthProvider();
+    await signInWithPopup(auth, provider);
+  } catch(e) {
+    btn.innerHTML = `<svg width="20" height="20" viewBox="0 0 48 48"><path fill="#EA4335" d="M24 9.5c3.5 0 6.6 1.2 9 3.2l6.7-6.7C35.8 2.5 30.2 0 24 0 14.6 0 6.6 5.5 2.7 13.5l7.8 6C12.4 13.2 17.8 9.5 24 9.5z"/><path fill="#4285F4" d="M46.5 24.5c0-1.6-.1-3.1-.4-4.5H24v8.5h12.7c-.6 3-2.3 5.5-4.8 7.2l7.5 5.8c4.4-4.1 7.1-10.1 7.1-17z"/><path fill="#FBBC05" d="M10.5 28.7A14.5 14.5 0 0 1 9.5 24c0-1.6.3-3.2.8-4.7l-7.8-6A23.9 23.9 0 0 0 0 24c0 3.9.9 7.5 2.5 10.8l8-6.1z"/><path fill="#34A853" d="M24 48c6.2 0 11.4-2 15.2-5.5l-7.5-5.8c-2.1 1.4-4.7 2.3-7.7 2.3-6.2 0-11.5-4.2-13.4-9.8l-8 6.1C6.6 42.5 14.6 48 24 48z"/></svg> Continue with Google`;
+    btn.disabled = false;
+    const err = document.getElementById('login-error');
+    err.textContent = 'Sign-in failed. Please try again.';
+    err.style.display = 'block';
+  }
+};
+
+window.signOutUser = async function() {
+  if (!confirm('Sign out?')) return;
+  if (unsubscribe) unsubscribe();
+  await signOut(auth);
+};
+
+onAuthStateChanged(auth, async (user) => {
+  if (user) {
+    currentUser = user;
+    await loadUserData(); // loadUserData now handles navigation
+  } else {
+    currentUser = null;
+    S = { profile:null,goals:null,diary:{},weights:[],customFoods:[],pendingMeal:'Snacks',dayOff:0,sg:null,sa:null };
+    showOnly('screen-login');
+    document.getElementById('main-nav').style.display = 'none';
+  }
+});
+
+// ── UI HELPERS ───────────────────────────────────────────────────────────────
+function setLoading(msg) {
+  document.getElementById('loading-msg').textContent = msg || 'Loading…';
+  showOnly('screen-loading');
+  document.getElementById('main-nav').style.display = 'none';
+}
+function hideLoading() { const el = document.getElementById('screen-loading'); if(el) el.classList.remove('active'); }
+function showOnly(id) {
+  document.querySelectorAll('.screen').forEach(s => s.classList.remove('active'));
+  document.getElementById(id).classList.add('active');
+}
+function showOnboarding(user) {
+  const first = user.displayName?.split(' ')[0] || 'there';
+  const el = document.getElementById('ob-welcome-name');
+  if (el) el.textContent = first;
+  document.querySelectorAll('.ob-step').forEach(s => s.classList.remove('active'));
+  document.getElementById('ob1').classList.add('active');
+  showOnly('screen-onboard');
+  document.getElementById('main-nav').style.display = 'none';
+}
+function launchApp() {
+  hideLoading();
+  document.getElementById('main-nav').style.display = 'flex';
+  showScreen('diary');
+}
+window.showScreen = function(name) {
+  document.querySelectorAll('.screen').forEach(s => {
+    s.classList.remove('active');
+  });
+  document.querySelectorAll('.nav-item').forEach(n => n.classList.remove('active'));
+  document.getElementById('screen-'+name).classList.add('active');
+  document.getElementById('nav-'+name).classList.add('active');
+  if (name==='diary') renderDiary();
+  if (name==='weight') renderWeight();
+  if (name==='profile') renderProfile();
+  if (name==='search') {
+    document.getElementById('fsearch').value='';
+    document.getElementById('search-results').innerHTML='<div style="color:var(--text3);font-size:14px;padding:24px;text-align:center">Powered by <span style="color:var(--accent);font-weight:600">Open Food Facts</span><br><span style="font-size:12px">3M+ products + your custom foods</span></div>';
+    switchTab('search');
+  }
+};
+
+// ── ONBOARDING ───────────────────────────────────────────────────────────────
+window.obGo = function(n) { document.querySelectorAll('.ob-step').forEach(s=>s.classList.remove('active')); document.getElementById('ob'+n).classList.add('active'); };
+window.obNext = function(n) {
+  if (n===1) {
+    const age=parseInt(document.getElementById('ob-age').value),h=parseFloat(document.getElementById('ob-height').value),w=parseFloat(document.getElementById('ob-weight').value);
+    if (!age||!h||!w){alert('Please fill all fields');return}
+    S.profile={ name: currentUser.displayName||'User', photoURL: currentUser.photoURL||'', age, sex:document.getElementById('ob-sex').value, height:h, weight:w, goalType:S.sg||'maintain', activityLevel:S.sa||'moderate' };
+  }
+  if (n===2&&!S.sg){alert('Please select a goal');return}
+  if (n===3) {
+    if (!S.sa){alert('Please select activity level');return}
+    S.goals=calcGoals();
+    const g=S.goals;
+    document.getElementById('goals-preview').innerHTML=`
+      <div class="card-row" style="margin-bottom:12px"><span style="font-weight:600;font-size:16px">Daily Calories</span><span style="font-size:24px;font-weight:700;color:var(--accent)">${g.calories} kcal</span></div>
+      <div class="card-row" style="padding:7px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--text2)">Protein</span><span style="font-weight:600;color:var(--blue)">${g.protein}g</span></div>
+      <div class="card-row" style="padding:7px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--text2)">Carbohydrates</span><span style="font-weight:600;color:var(--orange)">${g.carbs}g</span></div>
+      <div class="card-row" style="padding:7px 0"><span style="color:var(--text2)">Fat</span><span style="font-weight:600;color:var(--purple)">${g.fat}g</span></div>`;
+  }
+  obGo(n+1);
+};
+window.selGoal = function(g) { S.sg=g; ['lose','maintain','gain'].forEach(x=>document.getElementById('goal-'+x).classList.toggle('sel',x===g)); };
+window.selAct  = function(a) { S.sa=a; ['sedentary','light','moderate','very'].forEach(x=>document.getElementById('act-'+x).classList.toggle('sel',x===a)); };
+
+function calcGoals() {
+  const p=S.profile, m={sedentary:1.2,light:1.375,moderate:1.55,very:1.725}[S.sa]||1.375;
+  let bmr=p.sex==='male'?10*p.weight+6.25*p.height-5*p.age+5:10*p.weight+6.25*p.height-5*p.age-161;
+  let cal=Math.round(bmr*m);
+  if(S.sg==='lose')cal-=500; if(S.sg==='gain')cal+=300; cal=Math.max(1200,cal);
+  const prot=Math.round(p.weight*2),fat=Math.round(cal*.25/9),carbs=Math.round((cal-prot*4-fat*9)/4);
+  return {calories:cal,protein:prot,carbs,fat,water:Math.max(6,Math.round(p.weight*.033*4))};
+}
+
+window.finishOnboard = async function() {
+  try { await save(); } catch(e) { console.error(e); }
+  launchApp();
+};
+
+// ── DIARY ────────────────────────────────────────────────────────────────────
+function dStr(off=0){const d=new Date();d.setDate(d.getDate()+off);return d.toISOString().split('T')[0]}
+function entry(){const k=dStr(S.dayOff);if(!S.diary[k])S.diary[k]={meals:{Breakfast:[],Lunch:[],Dinner:[],Snacks:[]},water:0};return S.diary[k]}
+
+window.changeDay = function(d){S.dayOff=Math.min(0,S.dayOff+d);renderDiary()};
+
+function renderDiary(){
+  const e=entry(),g=S.goals||{calories:2000,protein:150,carbs:200,fat:65,water:8},off=S.dayOff;
+  const label=off===0?'TODAY':off===-1?'YESTERDAY':new Date(dStr(off)+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'}).toUpperCase();
+  document.getElementById('diary-date-lbl').textContent=label;
+  const h=new Date().getHours();
+  document.getElementById('diary-title').textContent=(h<12?'Good morning':h<17?'Good afternoon':'Good evening')+(S.profile?.name?' '+S.profile.name.split(' ')[0]:'');
+
+  let tC=0,tP=0,tCa=0,tF=0;
+  MEALS.forEach(m=>(e.meals[m]||[]).forEach(f=>{tC+=f.cal;tP+=f.protein;tCa+=f.carbs;tF+=f.fat}));
+  [tC,tP,tCa,tF]=[tC,tP,tCa,tF].map(Math.round);
+  const rem=Math.max(0,g.calories-tC),over=tC>g.calories,pct=Math.min(1,tC/g.calories),C=2*Math.PI*50;
+
+  document.getElementById('cal-card').innerHTML=`
+    <div style="display:flex;align-items:center;gap:16px">
+      <div style="position:relative;flex-shrink:0;width:118px;height:118px;display:flex;align-items:center;justify-content:center">
+        <svg width="118" height="118" viewBox="0 0 118 118" style="position:absolute;inset:0">
+          <circle cx="59" cy="59" r="50" fill="none" stroke="var(--surface3)" stroke-width="9"/>
+          <circle cx="59" cy="59" r="50" fill="none" stroke="${over?'var(--red)':'var(--accent)'}" stroke-width="9"
+            stroke-linecap="round" stroke-dasharray="${C.toFixed(1)}" stroke-dashoffset="${(C*(1-pct)).toFixed(1)}"
+            style="transform:rotate(-90deg);transform-origin:59px 59px;transition:stroke-dashoffset .6s"/>
+        </svg>
+        <div style="text-align:center;z-index:1">
+          <div style="font-size:20px;font-weight:700;letter-spacing:-1px;line-height:1">${tC}</div>
+          <div style="font-size:10px;color:var(--text2)">eaten</div>
+        </div>
+      </div>
+      <div style="flex:1">
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:8px">
+          <div style="background:var(--surface2);border-radius:10px;padding:10px"><div class="lbl">Goal</div><div style="font-size:17px;font-weight:700">${g.calories}</div></div>
+          <div style="background:var(--surface2);border-radius:10px;padding:10px"><div class="lbl">${over?'Over':'Left'}</div><div style="font-size:17px;font-weight:700;color:${over?'var(--red)':'var(--accent)'}">${over?tC-g.calories:rem}</div></div>
+        </div>
+      </div>
+    </div>`;
+
+  document.getElementById('macro-area').innerHTML=
+    mCard('Protein',tP,g.protein,'var(--blue)')+
+    mCard('Carbs',tCa,g.carbs,'var(--orange)')+
+    mCard('Fat',tF,g.fat,'var(--purple)');
+
+  let mhtml='';
+  MEALS.forEach(meal=>{
+    const items=e.meals[meal]||[],mCal=Math.round(items.reduce((a,f)=>a+f.cal,0));
+    mhtml+=`<div class="meal-section">
+      <div class="meal-header" onclick="togMeal('${meal}')">
+        <div><div style="font-weight:600">${meal}</div><div style="font-size:12px;color:var(--text2)">${mCal} kcal · ${items.length} item${items.length!==1?'s':''}</div></div>
+        <button class="btn btn-accent btn-sm" onclick="event.stopPropagation();openAdd('${meal}')" style="width:auto;padding:7px 16px">+</button>
+      </div>
+      <div class="meal-body" id="mb-${meal}">
+        ${!items.length?'<div style="color:var(--text3);font-size:13px;padding:4px 0 8px">Nothing logged yet</div>':
+          items.map((f,i)=>`<div class="food-item">
+            <div style="flex:1;min-width:0">
+              <div style="font-size:14px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${f.name}</div>
+              <div style="font-size:12px;color:var(--text2)">${f.serving} · P:${Math.round(f.protein)}g C:${Math.round(f.carbs)}g F:${Math.round(f.fat)}g</div>
+            </div>
+            <div style="display:flex;align-items:center;gap:8px;flex-shrink:0;margin-left:8px">
+              <span style="font-weight:600;color:var(--accent)">${Math.round(f.cal)}</span>
+              <button onclick="rmFood('${meal}',${i})" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:18px;line-height:1;padding:2px">×</button>
+            </div>
+          </div>`).join('')}
+      </div>
+    </div>`;
+  });
+  document.getElementById('meals-area').innerHTML=mhtml;
+
+  const wg=g.water||8,wc=e.water||0;
+  let drops='';for(let i=0;i<wg;i++)drops+=`<div class="drop ${i<wc?'filled':''}" onclick="setWater(${i})">💧</div>`;
+  document.getElementById('water-card').innerHTML=`
+    <div class="card-row" style="margin-bottom:10px">
+      <div><div class="lbl">Water Intake</div><div style="font-size:12px;color:var(--text2);margin-top:1px">${wc} of ${wg} glasses</div></div>
+      <span style="font-size:20px;font-weight:700;color:var(--blue)">${wc*250}ml</span>
+    </div>
+    <div style="display:flex;gap:6px;flex-wrap:wrap">${drops}</div>`;
+}
+
+function mCard(n,v,goal,color){
+  const pct=Math.min(100,goal>0?Math.round(v/goal*100):0);
+  return`<div class="macro-card"><div style="font-size:17px;font-weight:700;letter-spacing:-.5px;color:${color}">${v}g</div><div style="font-size:10px;color:var(--text2);margin-top:2px;text-transform:uppercase;letter-spacing:.4px">${n}</div><div class="prog-wrap"><div class="prog-fill" style="width:${pct}%;background:${color}"></div></div><div style="font-size:10px;color:var(--text3);margin-top:4px">${pct}% of ${goal}g</div></div>`;
+}
+
+window.togMeal  = function(m){document.getElementById('mb-'+m)?.classList.toggle('open')};
+window.setWater = async function(i){const e=entry();e.water=i<e.water?i:Math.min(S.goals?.water||8,i+1);renderDiary();await save()};
+window.rmFood   = async function(meal,idx){entry().meals[meal].splice(idx,1);renderDiary();await save()};
+
+// ── SEARCH ───────────────────────────────────────────────────────────────────
+window.openAdd = function(meal){S.pendingMeal=meal;showScreen('search')};
+window.switchTab = function(t){
+  ['search','custom','mine'].forEach(x=>{
+    document.getElementById('tab-'+x).classList.toggle('active',x===t);
+    document.getElementById('pane-'+x).style.display=x===t?'flex':'none';
+    if(x===t)document.getElementById('pane-'+x).style.flexDirection='column';
+  });
+  if(t==='mine')renderMyFoods();
+};
+window.onInput = function(){
+  clearTimeout(S.searchTimer);
+  const q=document.getElementById('fsearch').value.trim();
+  if(q.length<2){
+    document.getElementById('search-results').innerHTML='<div style="color:var(--text3);font-size:14px;padding:20px;text-align:center">Type to search 3M+ foods…</div>';
+    return;
+  }
+  showLocalResults(q);
+  S.searchTimer=setTimeout(()=>fetchAPIResults(q),300);
+};
+function showLocalResults(q){
+  const el=document.getElementById('search-results');
+  const ql=q.toLowerCase();
+  const customs=S.customFoods.filter(f=>f.name.toLowerCase().includes(ql));
+  const locals=LOCAL.filter(f=>f.name.toLowerCase().includes(ql)).slice(0,8);
+  let html='';
+  if(customs.length){html+=hdr('⭐ My Custom Foods','var(--blue)');html+=customs.map(f=>row(f,'custom')).join('')}
+  if(locals.length){html+=hdr('📦 Built-in Database','var(--orange)');html+=locals.map(f=>row(f,'local')).join('')}
+  html+=`<div id="api-results-section"><div style="display:flex;align-items:center;gap:10px;padding:12px 14px;color:var(--text3);font-size:13px"><div style="width:16px;height:16px;border:2px solid var(--surface3);border-top-color:var(--accent);border-radius:50%;animation:spin .7s linear infinite;flex-shrink:0"></div>Searching Open Food Facts…</div></div>`;
+  el.innerHTML=html;
+}
+async function fetchAPIResults(q){
+  const sec=document.getElementById('api-results-section');
+  if(!sec)return;
+  let api=[];
+  try{
+    const controller=new AbortController();
+    const timeout=setTimeout(()=>controller.abort(),5000);
+    const r=await fetch(
+      `https://world.openfoodfacts.org/cgi/search.pl?search_terms=${encodeURIComponent(q)}&action=process&json=1&page_size=12&fields=product_name,nutriments,serving_size,brands`,
+      {signal:controller.signal}
+    );
+    clearTimeout(timeout);
+    const d=await r.json();
+    api=(d.products||[]).filter(p=>p.product_name&&p.nutriments?.['energy-kcal_100g']!=null).map(p=>({
+      name:(p.product_name+(p.brands?` (${p.brands.split(',')[0].trim()})`:''))
+           .replace(/['"]/g,'').substring(0,55),
+      cal:Math.round(p.nutriments['energy-kcal_100g']||0),
+      protein:Math.round((p.nutriments['proteins_100g']||0)*10)/10,
+      carbs:Math.round((p.nutriments['carbohydrates_100g']||0)*10)/10,
+      fat:Math.round((p.nutriments['fat_100g']||0)*10)/10,
+      serving:p.serving_size||'100g',source:'api'
+    })).slice(0,12);
+  }catch(err){}
+  const sec2=document.getElementById('api-results-section');
+  if(!sec2)return;
+  if(api.length){
+    sec2.innerHTML=hdr('🌐 Open Food Facts','var(--accent)')+api.map(f=>row(f,'api')).join('');
+  } else {
+    sec2.innerHTML=`<div style="color:var(--text3);font-size:13px;padding:10px 14px">No online results — <button class="btn btn-ghost btn-sm" onclick="switchTab('custom')" style="width:auto;display:inline-flex;padding:4px 10px;font-size:12px">✏️ Create custom food</button></div>`;
+  }
+}
+function row(f,src){
+  const enc=encodeURIComponent(JSON.stringify(f));
+  const b=src==='api'?['🌐 Live','rgba(0,229,160,.12)','var(--accent)']:src==='custom'?['⭐ Mine','rgba(77,171,247,.12)','var(--blue)']:['📦 DB','rgba(255,159,67,.12)','var(--orange)'];
+  return`<div class="search-result" onclick="showModal('${enc}')">
+    <div style="flex:1;min-width:0">
+      <div style="font-size:14px;font-weight:500;overflow:hidden;text-overflow:ellipsis;white-space:nowrap">${f.name}</div>
+      <div style="font-size:12px;color:var(--text2)">per ${f.serving} · P:${f.protein}g C:${f.carbs}g F:${f.fat}g</div>
+    </div>
+    <div style="text-align:right;flex-shrink:0">
+      <div style="font-weight:700;color:var(--accent)">${f.cal} kcal</div>
+      <span style="font-size:10px;padding:2px 7px;border-radius:10px;font-weight:500;background:${b[1]};color:${b[2]}">${b[0]}</span>
+    </div>
+  </div>`;
+}
+window.showModal = function(enc){
+  const f=JSON.parse(decodeURIComponent(enc));
+  const m=document.createElement('div');m.className='modal-overlay';
+  m.innerHTML=`<div class="modal-sheet">
+    <div class="modal-handle"></div>
+    <div style="font-size:16px;font-weight:700;margin-bottom:4px;line-height:1.3">${f.name}</div>
+    <div style="font-size:13px;color:var(--text2);margin-bottom:14px">Per ${f.serving}</div>
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:7px;margin-bottom:16px;text-align:center">
+      <div style="background:var(--surface2);border-radius:9px;padding:9px"><div style="font-size:15px;font-weight:700;color:var(--accent)">${f.cal}</div><div style="font-size:10px;color:var(--text2);margin-top:2px">kcal</div></div>
+      <div style="background:var(--surface2);border-radius:9px;padding:9px"><div style="font-size:15px;font-weight:700;color:var(--blue)">${f.protein}g</div><div style="font-size:10px;color:var(--text2);margin-top:2px">protein</div></div>
+      <div style="background:var(--surface2);border-radius:9px;padding:9px"><div style="font-size:15px;font-weight:700;color:var(--orange)">${f.carbs}g</div><div style="font-size:10px;color:var(--text2);margin-top:2px">carbs</div></div>
+      <div style="background:var(--surface2);border-radius:9px;padding:9px"><div style="font-size:15px;font-weight:700;color:var(--purple)">${f.fat}g</div><div style="font-size:10px;color:var(--text2);margin-top:2px">fat</div></div>
+    </div>
+    <div class="lbl" style="margin-bottom:6px">Number of servings</div>
+    <input type="number" id="qty" value="1" step=".5" min=".5" style="text-align:center;font-size:22px;font-weight:700;margin-bottom:6px" oninput="document.getElementById('qprev').textContent=Math.round(${f.cal}*(parseFloat(this.value)||1))+' kcal'">
+    <div style="font-size:13px;color:var(--text2);text-align:center;margin-bottom:16px" id="qprev">${f.cal} kcal</div>
+    <div class="lbl" style="margin-bottom:6px">Add to meal</div>
+    <select id="mmeal" style="margin-bottom:18px">${MEALS.map(x=>`<option value="${x}" ${x===S.pendingMeal?'selected':''}>${x}</option>`).join('')}</select>
+    <div style="display:flex;gap:10px">
+      <button class="btn btn-ghost" onclick="this.closest('.modal-overlay').remove()" style="flex:1">Cancel</button>
+      <button class="btn btn-accent" onclick="confirmAdd('${enc}')" style="flex:2">Add to Diary</button>
+    </div>
+  </div>`;
+  document.body.appendChild(m);
+  m.addEventListener('click',e=>{if(e.target===m)m.remove()});
+};
+window.confirmAdd = async function(enc){
+  const f=JSON.parse(decodeURIComponent(enc));
+  const qty=parseFloat(document.getElementById('qty').value)||1;
+  const meal=document.getElementById('mmeal').value;
+  entry().meals[meal].push({
+    name:f.name, serving:`${qty!==1?qty+'× ':''}${f.serving}`,
+    cal:Math.round(f.cal*qty*10)/10, protein:Math.round(f.protein*qty*10)/10,
+    carbs:Math.round(f.carbs*qty*10)/10, fat:Math.round(f.fat*qty*10)/10,
+  });
+  document.querySelector('.modal-overlay')?.remove();
+  showScreen('diary');
+  await save();
+};
+
+// ── CUSTOM FOOD ───────────────────────────────────────────────────────────────
+window.saveCustomFood = async function(){
+  const name=document.getElementById('cf-name').value.trim(),cal=parseFloat(document.getElementById('cf-cal').value);
+  if(!name||!cal){alert('Name and calories are required');return}
+  const f={name,cal,protein:parseFloat(document.getElementById('cf-prot').value)||0,carbs:parseFloat(document.getElementById('cf-carb').value)||0,fat:parseFloat(document.getElementById('cf-fat').value)||0,serving:document.getElementById('cf-serving').value.trim()||'1 serving',source:'custom',id:Date.now()};
+  S.customFoods.push(f);
+  entry().meals[S.pendingMeal||'Snacks'].push({...f});
+  ['cf-name','cf-serving','cf-cal','cf-prot','cf-carb','cf-fat'].forEach(id=>document.getElementById(id).value='');
+  showScreen('diary');
+  await save();
+};
+function renderMyFoods(){
+  const el=document.getElementById('my-foods-list');if(!el)return;
+  if(!S.customFoods.length){el.innerHTML='<div style="color:var(--text3);font-size:14px;padding:24px;text-align:center">No custom foods yet.<br>Use the "Create" tab to add one!</div>';return}
+  el.innerHTML=[...S.customFoods].reverse().map(f=>`
+    <div class="search-result">
+      <div style="flex:1;min-width:0;cursor:pointer" onclick="showModal('${encodeURIComponent(JSON.stringify(f))}')">
+        <div style="font-size:14px;font-weight:500">${f.name}</div>
+        <div style="font-size:12px;color:var(--text2)">${f.serving} · ${f.cal} kcal · P:${f.protein}g C:${f.carbs}g F:${f.fat}g</div>
+      </div>
+      <button onclick="delCustom(${f.id})" style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:17px;padding:4px;flex-shrink:0">🗑️</button>
+    </div>`).join('');
+}
+window.delCustom = async function(id){if(!confirm('Delete?'))return;S.customFoods=S.customFoods.filter(f=>f.id!==id);renderMyFoods();await save()};
+
+// ── WEIGHT ────────────────────────────────────────────────────────────────────
+window.logWeight = async function(){
+  const w=parseFloat(document.getElementById('weight-input').value);
+  if(!w||w<20||w>500){alert('Please enter a valid weight');return}
+  const d=dStr(0);
+  S.weights=S.weights.filter(x=>x.date!==d);
+  S.weights.push({date:d,weight:w});
+  S.weights.sort((a,b)=>a.date.localeCompare(b.date));
+  if(S.profile)S.profile.weight=w;
+  document.getElementById('weight-input').value='';
+  renderWeight();await save();
+};
+function renderWeight(){
+  const r=S.weights.slice(-10),vals=r.map(x=>x.weight);
+  const mx=Math.max(...vals,80),mn=Math.min(...vals,mx-5),rng=mx-mn||5;
+  const dn=['Su','Mo','Tu','We','Th','Fr','Sa'];
+  const ch=document.getElementById('wt-chart'),lb=document.getElementById('wt-labels');
+  if(ch)ch.innerHTML=r.length?r.map(w=>`<div class="wt-bar-wrap"><div style="font-size:9px;color:var(--accent);text-align:center;margin-bottom:2px">${w.weight}</div><div class="wt-bar-bg"><div class="wt-bar-fill" style="height:${Math.round(((w.weight-mn)/rng)*80)+10}%"></div></div></div>`).join(''):'<div style="color:var(--text3);font-size:13px;padding:16px 0">No data yet</div>';
+  if(lb)lb.innerHTML=r.map(w=>`<div style="flex:1;text-align:center;font-size:10px;color:var(--text3)">${dn[new Date(w.date+'T12:00:00').getDay()]}</div>`).join('');
+  const h=document.getElementById('wt-history');if(!h)return;
+  if(!S.weights.length){h.innerHTML='<div class="card" style="color:var(--text3);text-align:center;padding:16px">Log weight to see history</div>';return}
+  const st=S.weights[0].weight,cu=S.weights[S.weights.length-1].weight,df=Math.round((cu-st)*10)/10;
+  h.innerHTML=`<div class="stat-grid">
+    <div class="stat-card"><div class="lbl">Starting</div><div style="font-size:20px;font-weight:700">${st}kg</div></div>
+    <div class="stat-card"><div class="lbl">Current</div><div style="font-size:20px;font-weight:700;color:var(--accent)">${cu}kg</div></div>
+    <div class="stat-card"><div class="lbl">Change</div><div style="font-size:20px;font-weight:700;color:${df<0?'var(--accent)':df>0?'var(--red)':'var(--text)'}">${df>0?'+':''}${df}kg</div></div>
+    <div class="stat-card"><div class="lbl">Entries</div><div style="font-size:20px;font-weight:700">${S.weights.length}</div></div>
+  </div>
+  <div class="card">${[...S.weights].reverse().slice(0,30).map(w=>`<div class="card-row" style="padding:9px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--text2);font-size:14px">${new Date(w.date+'T12:00:00').toLocaleDateString('en-GB',{weekday:'short',day:'numeric',month:'short'})}</span><span style="font-weight:600">${w.weight} kg</span></div>`).join('')}</div>`;
+}
+
+// ── PROFILE ───────────────────────────────────────────────────────────────────
+function renderProfile(){
+  const p=S.profile,g=S.goals;
+  if(!p||!g){document.getElementById('profile-area').innerHTML='<div style="color:var(--text3);padding:16px">No profile yet</div>';return}
+  const photo=p.photoURL?`<img src="${p.photoURL}" style="width:72px;height:72px;border-radius:50%;border:2px solid var(--accent);object-fit:cover">`:`<div style="width:72px;height:72px;border-radius:50%;background:var(--accent-dim);border:2px solid var(--accent);display:flex;align-items:center;justify-content:center;font-size:30px">👤</div>`;
+  document.getElementById('profile-area').innerHTML=`
+    <div style="text-align:center;margin-bottom:20px;padding-top:4px">
+      ${photo}
+      <div style="font-size:22px;font-weight:700;margin-top:10px">${p.name}</div>
+      <div style="font-size:13px;color:var(--text2);margin-top:3px">${p.age}y · ${p.sex} · ${p.height}cm · ${p.weight}kg</div>
+      <div style="font-size:12px;color:var(--accent);margin-top:6px">☁️ Synced to your Google account</div>
+    </div>
+
+    <div class="section-title">Edit Profile</div>
+    <div class="card">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+        <div><div class="lbl" style="margin-bottom:6px">Age</div><input type="number" id="ep-age" value="${p.age}" min="10" max="100"></div>
+        <div><div class="lbl" style="margin-bottom:6px">Sex</div>
+          <select id="ep-sex">
+            <option value="male" ${p.sex==='male'?'selected':''}>Male</option>
+            <option value="female" ${p.sex==='female'?'selected':''}>Female</option>
+          </select>
+        </div>
+        <div><div class="lbl" style="margin-bottom:6px">Height (cm)</div><input type="number" id="ep-height" value="${p.height}" min="100" max="250"></div>
+        <div><div class="lbl" style="margin-bottom:6px">Weight (kg)</div><input type="number" id="ep-weight" value="${p.weight}" step=".1" min="20" max="500"></div>
+      </div>
+      <div style="display:flex;gap:10px">
+        <button class="btn btn-ghost" id="ep-recalc-btn" onclick="saveProfileAndRecalc()" style="flex:1">Save & Recalculate Goals</button>
+        <button class="btn btn-accent" id="ep-save-btn" onclick="saveProfileOnly()" style="flex:1">Save Only</button>
+      </div>
+      <div style="font-size:12px;color:var(--text3);margin-top:8px;line-height:1.5">"Save & Recalculate" will update your calorie and macro targets based on your new stats.</div>
+    </div>
+
+    <div class="section-title">Daily Targets</div>
+    <div class="card">
+      <div class="card-row" style="padding:8px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--text2)">Calories</span><span style="font-weight:700;color:var(--accent);font-size:17px">${g.calories} kcal</span></div>
+      <div class="card-row" style="padding:8px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--text2)">Protein</span><span style="font-weight:600;color:var(--blue)">${g.protein}g</span></div>
+      <div class="card-row" style="padding:8px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--text2)">Carbs</span><span style="font-weight:600;color:var(--orange)">${g.carbs}g</span></div>
+      <div class="card-row" style="padding:8px 0;border-bottom:0.5px solid var(--border)"><span style="color:var(--text2)">Fat</span><span style="font-weight:600;color:var(--purple)">${g.fat}g</span></div>
+      <div class="card-row" style="padding:8px 0"><span style="color:var(--text2)">Water</span><span style="font-weight:600;color:var(--blue)">${g.water} glasses</span></div>
+    </div>
+
+    <div class="section-title">Edit Goals Manually</div>
+    <div class="card">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:12px">
+        <div><div class="lbl" style="margin-bottom:6px">Calories</div><input type="number" id="eg-cal" value="${g.calories}"></div>
+        <div><div class="lbl" style="margin-bottom:6px">Protein (g)</div><input type="number" id="eg-prot" value="${g.protein}"></div>
+        <div><div class="lbl" style="margin-bottom:6px">Carbs (g)</div><input type="number" id="eg-carbs" value="${g.carbs}"></div>
+        <div><div class="lbl" style="margin-bottom:6px">Fat (g)</div><input type="number" id="eg-fat" value="${g.fat}"></div>
+      </div>
+      <div><div class="lbl" style="margin-bottom:6px">Water (glasses/day)</div><input type="number" id="eg-water" value="${g.water}" style="margin-bottom:14px"></div>
+      <button class="btn btn-accent" onclick="saveGoals()">Save Goals</button>
+    </div>
+
+    <div style="margin-top:12px;margin-bottom:4px">
+      <button class="btn btn-danger" onclick="signOutUser()">Sign Out</button>
+    </div>`;
+}
+
+window.saveProfileOnly = async function(){
+  const age=parseInt(document.getElementById('ep-age').value);
+  const height=parseFloat(document.getElementById('ep-height').value);
+  const weight=parseFloat(document.getElementById('ep-weight').value);
+  const sex=document.getElementById('ep-sex').value;
+  if(!age||!height||!weight){alert('Please fill all fields');return}
+  S.profile={...S.profile,age,height,weight,sex};
+  await save();
+  const b=document.getElementById('ep-save-btn');
+  if(b){b.textContent='Saved ✓';setTimeout(()=>{b.textContent='Save Only';renderProfile()},1500)}
+};
+
+window.saveProfileAndRecalc = async function(){
+  const age=parseInt(document.getElementById('ep-age').value);
+  const height=parseFloat(document.getElementById('ep-height').value);
+  const weight=parseFloat(document.getElementById('ep-weight').value);
+  const sex=document.getElementById('ep-sex').value;
+  if(!age||!height||!weight){alert('Please fill all fields');return}
+  S.profile={...S.profile,age,height,weight,sex};
+  // Recalculate goals using same formula as onboarding
+  const actMult={sedentary:1.2,light:1.375,moderate:1.55,very:1.725}[S.profile.activityLevel||'moderate']||1.55;
+  let bmr=sex==='male'?10*weight+6.25*height-5*age+5:10*weight+6.25*height-5*age-161;
+  let cal=Math.round(bmr*actMult);
+  const goalType=S.profile.goalType||'maintain';
+  if(goalType==='lose')cal-=500; if(goalType==='gain')cal+=300; cal=Math.max(1200,cal);
+  const protein=Math.round(weight*2),fat=Math.round(cal*.25/9),carbs=Math.round((cal-protein*4-fat*9)/4);
+  S.goals={...S.goals,calories:cal,protein,carbs,fat,water:Math.max(6,Math.round(weight*.033*4))};
+  await save();
+  const b=document.getElementById('ep-recalc-btn');
+  if(b){b.textContent='Updated ✓';setTimeout(()=>renderProfile(),1500)}
+};
+
+window.saveGoals = async function(){
+  S.goals={calories:parseInt(document.getElementById('eg-cal').value)||S.goals.calories,protein:parseInt(document.getElementById('eg-prot').value)||S.goals.protein,carbs:parseInt(document.getElementById('eg-carbs').value)||S.goals.carbs,fat:parseInt(document.getElementById('eg-fat').value)||S.goals.fat,water:parseInt(document.getElementById('eg-water').value)||S.goals.water};
+  await save();
+  const b=document.querySelector('#profile-area .btn-accent');
+  if(b){b.textContent='Saved ✓';setTimeout(()=>{b.textContent='Save Goals'},1500)}
+};
+
+// Init tab panes
+['search','custom','mine'].forEach(t=>{
+  const p=document.getElementById('pane-'+t);
+  if(p){p.style.display=t==='search'?'flex':'none';p.style.flexDirection='column';}
+});
+</script>
+</body>
+</html>
